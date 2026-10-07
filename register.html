@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Become a Care Provider | CareX</title>
+    <meta
+      name="description"
+      content="Join the CareX network as a local care provider or hospital companion."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="CareX Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+            </svg>
+          </span>
+          <span class="brand-name">Care<span>X</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="find-care.html">Find Care</a>
+          <a href="register.html" class="active">Become a Provider</a>
+          <a href="about.html">About</a>
+        </nav>
+
+        <!-- Navbar Actions -->
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="mobile-toggle" type="button" aria-label="Open menu" data-drawer-open>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="section" id="main-content" style="padding-top:2.5rem;">
+      <div class="container" style="max-width:760px;">
+        <div style="text-align:center; margin-bottom:2.25rem;">
+          <span class="eyebrow" style="justify-content:center;">Join the Network</span>
+          <h1 class="section-title">Become a CareX Provider</h1>
+          <p class="lead-text" style="margin:0.5rem auto 0; text-align:center;">
+            Turn your experience and compassion into dignified local care work.
+          </p>
+        </div>
+
+        <div class="dashboard-block" style="padding:clamp(1.5rem, 4vw, 2.5rem); border-radius:var(--radius-2xl);">
+          <!-- Step Indicators -->
+          <div class="stepper" style="display:flex; justify-content:space-between; gap:0.5rem; margin-bottom:2rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border); overflow-x:auto;">
+            <span class="step active" style="font-size:0.8rem; font-weight:700; color:var(--primary);">1. Personal</span>
+            <span class="step" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">2. Role</span>
+            <span class="step" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">3. Experience</span>
+            <span class="step" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">4. Rates</span>
+            <span class="step" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">5. Area</span>
+            <span class="step" style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">6. Review</span>
+          </div>
+
+          <!-- Wizard Form Container -->
+          <form class="step-form">
+            <!-- Step 1: Basic Information -->
+            <div class="form-step active">
+              <h3 style="font-size:1.25rem; margin-bottom:1.25rem;">Step 1: Basic Information</h3>
+              <div class="grid-2" style="gap:1rem;">
+                <div class="field">
+                  <label for="provider-name">Full Legal Name</label>
+                  <input id="provider-name" type="text" value="Aisha Khan" required />
+                </div>
+                <div class="field">
+                  <label for="provider-phone">Phone Number</label>
+                  <input id="provider-phone" type="tel" value="+91 98110 23456" required />
+                </div>
+                <div class="field">
+                  <label for="provider-email">Email Address</label>
+                  <input id="provider-email" type="email" value="provider@gmail.com" required />
+                </div>
+                <div class="field">
+                  <label for="provider-city">City</label>
+                  <input id="provider-city" type="text" value="New Delhi" required />
+                </div>
+                <div class="field" style="grid-column:1 / -1;">
+                  <label for="provider-area">Neighborhood / Locality</label>
+                  <input id="provider-area" type="text" value="Shaheen Bagh & Jamia Nagar" required />
+                </div>
+              </div>
+              <div style="display:flex; justify-content:flex-end; margin-top:2rem;">
+                <button class="btn btn-primary" type="button" data-step-next="1">Continue to Role &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Choose Service -->
+            <div class="form-step" style="display:none;">
+              <h3 style="font-size:1.25rem; margin-bottom:1.25rem;">Step 2: Service Focus</h3>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <label style="display:flex; align-items:flex-start; gap:0.75rem; padding:1rem; border:1px solid var(--border); border-radius:var(--radius-md); background:var(--bg-subtle); cursor:pointer;">
+                  <input type="checkbox" checked style="width:18px; height:18px; margin-top:3px;" />
+                  <div>
+                    <strong>Elderly Care & Ongoing Companionship</strong>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;">Regular home routines, walking, conversation & reassurance.</p>
+                  </div>
+                </label>
+
+                <label style="display:flex; align-items:flex-start; gap:0.75rem; padding:1rem; border:1px solid var(--border); border-radius:var(--radius-md); background:var(--bg-subtle); cursor:pointer;">
+                  <input type="checkbox" checked style="width:18px; height:18px; margin-top:3px;" />
+                  <div>
+                    <strong>Hospital & Appointment Companion</strong>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;">Accompanying patients to OPD queues, diagnostics & checkups.</p>
+                  </div>
+                </label>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+                <button class="btn btn-secondary" type="button" data-step-next="-1">&larr; Back</button>
+                <button class="btn btn-primary" type="button" data-step-next="1">Continue &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Experience -->
+            <div class="form-step" style="display:none;">
+              <h3 style="font-size:1.25rem; margin-bottom:1.25rem;">Step 3: Background & Languages</h3>
+              <div class="grid-2" style="gap:1rem;">
+                <div class="field">
+                  <label for="provider-experience">Years of Experience</label>
+                  <input id="provider-experience" type="text" value="5 years" required />
+                </div>
+                <div class="field">
+                  <label for="provider-languages">Languages Spoken</label>
+                  <input id="provider-languages" type="text" value="Hindi, English, Urdu" required />
+                </div>
+                <div class="field" style="grid-column:1 / -1;">
+                  <label for="provider-bio">Brief Introduction</label>
+                  <textarea id="provider-bio" rows="3" required>Compassionate caregiver with strong experience assisting elders through daily mobility, medication routines and clinic visits.</textarea>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+                <button class="btn btn-secondary" type="button" data-step-next="-1">&larr; Back</button>
+                <button class="btn btn-primary" type="button" data-step-next="1">Continue &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Pricing -->
+            <div class="form-step" style="display:none;">
+              <h3 style="font-size:1.25rem; margin-bottom:1.25rem;">Step 4: Your Transparent Rates</h3>
+              <div class="grid-2" style="gap:1rem;">
+                <div class="field">
+                  <label for="provider-monthly">Monthly Care Rate (₹)</label>
+                  <input id="provider-monthly" type="text" value="₹18,000" />
+                </div>
+                <div class="field">
+                  <label for="provider-daily">Hospital Companion Day Rate (₹)</label>
+                  <input id="provider-daily" type="text" value="₹800" />
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+                <button class="btn btn-secondary" type="button" data-step-next="-1">&larr; Back</button>
+                <button class="btn btn-primary" type="button" data-step-next="1">Continue &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 5: Availability -->
+            <div class="form-step" style="display:none;">
+              <h3 style="font-size:1.25rem; margin-bottom:1.25rem;">Step 5: Preferred Schedule</h3>
+              <div class="grid-2" style="gap:1rem;">
+                <div class="field">
+                  <label for="provider-days">Available Days</label>
+                  <input id="provider-days" type="text" value="Monday – Friday" />
+                </div>
+                <div class="field">
+                  <label for="provider-hours">Preferred Hours</label>
+                  <input id="provider-hours" type="text" value="9:00 AM – 6:00 PM" />
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+                <button class="btn btn-secondary" type="button" data-step-next="-1">&larr; Back</button>
+                <button class="btn btn-primary" type="button" data-step-next="1">Review Profile &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 6: Review & Submit -->
+            <div class="form-step" style="display:none;">
+              <h3 style="font-size:1.25rem; margin-bottom:1.25rem;">Step 6: Profile Summary</h3>
+              <div style="background:var(--bg-subtle); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.25rem; margin-bottom:1.5rem;">
+                <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+                  <div class="author-avatar" style="width:42px; height:42px;">AK</div>
+                  <div>
+                    <strong>Aisha Khan</strong>
+                    <span style="display:block; font-size:0.8rem; color:var(--text-muted);">Care Provider · Shaheen Bagh</span>
+                  </div>
+                </div>
+                <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5;">
+                  Rate: <strong>₹18,000/month</strong> · Hospital Companion: <strong>₹800/day</strong><br />
+                  Schedule: <strong>Mon-Fri (9 AM – 6 PM)</strong> · Verified Demo Application
+                </p>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+                <button class="btn btn-secondary" type="button" data-step-next="-1">&larr; Back</button>
+                <button class="btn btn-primary" type="button" data-submit-demo>Submit & Launch Profile</button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Success State -->
+          <div class="success-state hidden" style="display:none; text-align:center; padding:2rem 1rem;">
+            <div style="width:56px; height:56px; border-radius:50%; background:var(--success-bg); color:var(--success); display:grid; place-items:center; margin:0 auto 1.25rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 style="font-size:1.5rem; margin-bottom:0.5rem;">Your CareX Provider Profile is Ready!</h3>
+            <p style="color:var(--text-secondary); font-size:0.95rem; max-width:440px; margin:0 auto 1.75rem;">
+              Your profile has been saved to local demo storage. You can now access your provider dashboard and accept family care requests.
+            </p>
+            <a href="provider-dashboard.html" class="btn btn-primary btn-lg">Open Provider Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom" style="border:none; padding:0;">
+          <p>© <span id="year">2026</span> CareX. Provider Onboarding.</p>
+          <p class="footer-disclaimer">Demo prototype — not a medical emergency service.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>CareX | Care that feels closer to home</title>
+    <meta
+      name="description"
+      content="Find trusted local caregivers and companions for hospital visits, elderly care and everyday assistance."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="CareX Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+            </svg>
+          </span>
+          <span class="brand-name">Care<span>X</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html" class="active">Home</a>
+          <a href="find-care.html">Find Care</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="about.html">About</a>
+        </nav>
+
+        <!-- Navbar Actions -->
+        <div class="nav-actions">
+          <button class="btn btn-primary btn-sm btn-desktop-only" type="button" data-request-care>Request Care</button>
+          <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark/light theme" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="mobile-toggle" type="button" aria-label="Open navigation menu" data-drawer-open>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- 5. HERO SECTION -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <!-- Left Column: Copy & Actions -->
+          <div class="hero-copy animate-hero-text">
+            <span class="eyebrow">Trusted care, closer to home</span>
+            <h1 class="hero-title">
+              Care that feels<br />closer to home.
+            </h1>
+            <p class="lead-text">
+              Find trusted local caregivers and companions for hospital visits, elderly care and everyday assistance.
+            </p>
+            <div class="hero-actions">
+              <a href="find-care.html" class="btn btn-primary btn-lg">Find Care</a>
+              <a href="register.html" class="btn btn-secondary btn-lg">Become a Care Provider</a>
+            </div>
+          </div>
+
+          <!-- Right Column: Editorial Photograph & Floating Cards -->
+          <div class="hero-visual animate-hero-image">
+            <div class="hero-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80"
+                alt="Compassionate elderly caregiver offering warm companionship"
+                fetchpriority="high"
+                width="800"
+                height="600"
+              />
+
+              <!-- Floating Card 1: Verified Care Provider -->
+              <div class="floating-card floating-card-1 animate-float-1">
+                <div class="card-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Verified Care Provider
+                </div>
+                <div class="card-person-row">
+                  <div class="card-avatar" aria-hidden="true">AK</div>
+                  <div class="card-info">
+                    <strong>Aisha Khan</strong>
+                    <span>4.9 ★ · 5 yrs exp</span>
+                  </div>
+                </div>
+                <div class="card-status-pill">
+                  <span class="status-dot pulsing" aria-hidden="true"></span>
+                  Available today
+                </div>
+              </div>
+
+              <!-- Floating Card 2: Hospital Companion Scheduled Visit -->
+              <div class="floating-card floating-card-2 animate-float-2">
+                <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color:var(--primary); margin-bottom:4px;">
+                  Hospital Companion
+                </div>
+                <div class="card-person-row">
+                  <div class="card-avatar" style="background:#e0f2fe; color:#0369a1;" aria-hidden="true">AI</div>
+                  <div class="card-info">
+                    <strong>AIIMS Appointment</strong>
+                    <span>Today · 10:30 AM</span>
+                  </div>
+                </div>
+                <div style="margin-top:6px; font-size:0.75rem; color:var(--text-muted); display:flex; align-items:center; gap:4px;">
+                  <span class="status-dot" style="background:var(--primary);" aria-hidden="true"></span>
+                  Companion confirmed
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. PREMIUM ASYMMETRIC SERVICES SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Our Services</span>
+            <h2 class="section-title">Support for the moments that matter.</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Thoughtful, dignified care tailored around family peace of mind and trusted local relationships.
+            </p>
+          </div>
+
+          <div class="services-bento">
+            <!-- 01 Elderly Care (Featured Asymmetric Block) -->
+            <article class="service-card service-card-featured reveal reveal-delay-1">
+              <span class="service-number">01</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Elderly Care</h3>
+              <p>Reliable ongoing support and companionship at home.</p>
+              <ul class="service-card-features">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Daily routine & walking companionship
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Medication schedules & meal reminders
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Regular reassurance updates for distant families
+                </li>
+              </ul>
+            </article>
+
+            <!-- 02 Hospital Companion -->
+            <article class="service-card reveal reveal-delay-2">
+              <span class="service-number">02</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="16" height="20" x="4" y="2" rx="2"></rect>
+                  <path d="M9 10h6"></path>
+                  <path d="M12 7v6"></path>
+                </svg>
+              </div>
+              <h3 class="card-title">Hospital Companion</h3>
+              <p>Someone you can trust to accompany your loved one to appointments.</p>
+              <ul class="service-card-features">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  OPD queue assistance & check-ins
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Doctor notes recording & follow-ups
+                </li>
+              </ul>
+            </article>
+
+            <!-- 03 Everyday Assistance -->
+            <article class="service-card reveal reveal-delay-3">
+              <span class="service-number">03</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">Everyday Assistance</h3>
+              <p>Help with errands, appointments and essential daily tasks.</p>
+              <ul class="service-card-features">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Pharmacy pickups & grocery visits
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Safe escort for bank & neighborhood errands
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. TRUST SECTION (DARK NAVY SECTION) -->
+      <section class="section trust-section">
+        <div class="trust-glow" aria-hidden="true"></div>
+        <div class="trust-glow-bottom" aria-hidden="true"></div>
+        <div class="container">
+          <div class="section-header centered reveal">
+            <span class="eyebrow">Trust & Safety</span>
+            <h2 class="section-title">Because care starts with trust.</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Every step of our marketplace is built to protect dignity, transparency, and family confidence.
+            </p>
+          </div>
+
+          <div class="trust-grid">
+            <!-- 1. Verified profiles -->
+            <article class="trust-pillar-card reveal reveal-delay-1">
+              <div class="trust-pillar-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                </svg>
+              </div>
+              <strong>Verified Profiles</strong>
+            </article>
+
+            <!-- 2. Transparent pricing -->
+            <article class="trust-pillar-card reveal reveal-delay-2">
+              <div class="trust-pillar-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <strong>Transparent Pricing</strong>
+            </article>
+
+            <!-- 3. Simple booking -->
+            <article class="trust-pillar-card reveal reveal-delay-1">
+              <div class="trust-pillar-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <strong>Simple Booking</strong>
+            </article>
+
+            <!-- 4. In-app communication -->
+            <article class="trust-pillar-card reveal reveal-delay-2">
+              <div class="trust-pillar-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <strong>In-App Communication</strong>
+            </article>
+
+            <!-- 5. Care tracking -->
+            <article class="trust-pillar-card reveal reveal-delay-3">
+              <div class="trust-pillar-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 14 14"></polyline>
+                </svg>
+              </div>
+              <strong>Care Tracking</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. HOW IT WORKS TIMELINE -->
+      <section class="section" id="how-it-works">
+        <div class="container">
+          <div class="section-header centered reveal">
+            <span class="eyebrow">Clear Process</span>
+            <h2 class="section-title">How CareX works</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Connecting your family with the right caregiver takes only four simple steps.
+            </p>
+          </div>
+
+          <div class="timeline-wrapper reveal">
+            <div class="timeline-progress-bar" aria-hidden="true">
+              <div class="timeline-progress-line"></div>
+            </div>
+
+            <div class="timeline-track">
+              <!-- Step 01 -->
+              <div class="timeline-step-item">
+                <div class="timeline-node">01</div>
+                <h3>Tell us what you need</h3>
+                <p>Choose companion support, appointment assistance or regular monthly elderly care.</p>
+              </div>
+
+              <!-- Step 02 -->
+              <div class="timeline-step-item">
+                <div class="timeline-node">02</div>
+                <h3>Choose someone nearby</h3>
+                <p>Review vetted caregivers, verified badges, ratings and genuine neighborhood experience.</p>
+              </div>
+
+              <!-- Step 03 -->
+              <div class="timeline-step-item">
+                <div class="timeline-node">03</div>
+                <h3>Confirm your booking</h3>
+                <p>Lock in your preferred date, time and requirements with full pricing clarity.</p>
+              </div>
+
+              <!-- Step 04 -->
+              <div class="timeline-step-item">
+                <div class="timeline-node">04</div>
+                <h3>Stay connected</h3>
+                <p>Receive real-time arrival updates and doctor visit notes directly in your CareX dashboard.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. LIVE TRACKING PREVIEW SECTION -->
+      <section class="section" style="background:var(--bg-subtle);">
+        <div class="container tracking-preview-grid">
+          <!-- Left Column -->
+          <div class="tracking-copy reveal">
+            <span class="eyebrow">Live Tracking Demo</span>
+            <h2 class="section-title">Know when help is on the way.</h2>
+            <p class="lead-text">
+              Stay connected with your CareX companion from pickup to arrival. Peace of mind for families who can't always be there in person.
+            </p>
+
+            <ul class="tracking-perks">
+              <li>
+                <div class="tracking-perk-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Real-time ETA notifications from companion dispatch to hospital check-in.</span>
+              </li>
+              <li>
+                <div class="tracking-perk-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Direct private messaging and instant call access during appointments.</span>
+              </li>
+              <li>
+                <div class="tracking-perk-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>Post-visit summary notes sent to your family member dashboard.</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-primary" type="button" data-request-care>Experience Live Support</button>
+          </div>
+
+          <!-- Right Column: Interactive Map Component -->
+          <div class="live-map-card reveal reveal-delay-1">
+            <div class="map-header-bar">
+              <span class="map-demo-label">
+                <span class="status-dot pulsing" aria-hidden="true"></span>
+                Live Tracking Demo
+              </span>
+              <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">Active Dispatch · En Route</span>
+            </div>
+
+            <div class="map-canvas-area" aria-label="Interactive map simulation">
+              <!-- Route Path -->
+              <svg class="map-route-svg" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 60 220 Q 150 180 200 140 T 330 70" fill="none" stroke="#0284c7" stroke-width="4" stroke-dasharray="6,6" opacity="0.8"></path>
+              </svg>
+
+              <!-- Companion Starting Location Pin -->
+              <div class="map-pin" style="top:55px; right:60px;">
+                <div class="map-pin-pulse"></div>
+                <span class="map-pin-tag">Destination: AIIMS</span>
+              </div>
+
+              <!-- Live Position Pin -->
+              <div class="map-pin" style="bottom:70px; left:50px;">
+                <div class="map-pin-pulse" style="background:#10b981; box-shadow:0 0 0 6px rgba(16,185,129,0.35);"></div>
+                <span class="map-pin-tag" style="background:#0f172a;">Rahul Mehta (Pickup)</span>
+              </div>
+
+              <!-- Map Overlay Card -->
+              <div class="map-status-overlay">
+                <div class="companion-profile-snippet">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                    alt="Rahul Mehta portrait"
+                    loading="lazy"
+                    width="44"
+                    height="44"
+                  />
+                  <div>
+                    <strong>Rahul Mehta</strong>
+                    <span style="display:flex; align-items:center; gap:4px; margin-top:2px;">
+                      <span class="status-dot pulsing" style="background:#10b981;"></span>
+                      Care Companion · On the way
+                    </span>
+                  </div>
+                </div>
+
+                <div class="trip-meta-eta">
+                  <span class="eta-pill">ETA: 18 min</span>
+                  <span class="destination-label">Destination: AIIMS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. FIND CARE PREVIEW (MARKETPLACE PREVIEW) -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Marketplace Preview</span>
+            <h2 class="section-title">Find someone you can trust.</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Experienced, background-verified caregivers available right in your neighborhood.
+            </p>
+          </div>
+
+          <div class="marketplace-grid">
+            <!-- 1. Aisha Khan -->
+            <article class="provider-card reveal reveal-delay-1">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+                  alt="Aisha Khan - Verified Care Provider"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.9 ★</div>
+              </div>
+
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Aisha Khan</h3>
+                  <span class="status-dot" style="background:var(--success);" title="Available today"></span>
+                </div>
+                <div class="provider-role-label">Care Provider</div>
+
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>5 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Shaheen Bagh</span>
+                  </div>
+                </div>
+
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹18,000 <span>/ month</span>
+                  </div>
+                  <a href="find-care.html" class="btn btn-secondary btn-sm">View Profile</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Rahul Mehta -->
+            <article class="provider-card reveal reveal-delay-2">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+                  alt="Rahul Mehta - Hospital Companion"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.8 ★</div>
+              </div>
+
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Rahul Mehta</h3>
+                  <span class="status-dot" style="background:var(--success);" title="Available today"></span>
+                </div>
+                <div class="provider-role-label">Care Companion</div>
+
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>3 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Jamia Nagar</span>
+                  </div>
+                </div>
+
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹800 <span>/ day</span>
+                  </div>
+                  <a href="provider-profile.html" class="btn btn-secondary btn-sm">View Profile</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Meena Sharma -->
+            <article class="provider-card reveal reveal-delay-3">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
+                  alt="Meena Sharma - Experienced Care Provider"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.9 ★</div>
+              </div>
+
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Meena Sharma</h3>
+                  <span class="status-dot" style="background:var(--text-muted);" title="Fully booked this week"></span>
+                </div>
+                <div class="provider-role-label">Care Provider</div>
+
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>7 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Okhla</span>
+                  </div>
+                </div>
+
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹20,000 <span>/ month</span>
+                  </div>
+                  <a href="find-care.html" class="btn btn-secondary btn-sm">View Profile</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAMILY FEEDBACK & SAFETY -->
+      <section class="section-sm">
+        <div class="container grid-2" style="align-items:stretch;">
+          <div class="testimonial-card reveal">
+            <span class="eyebrow">Family Feedback</span>
+            <p class="testimonial-quote">
+              “CareX made it seamless to find a dependable, gentle support person for my father’s AIIMS appointments. The process felt clear, calm and trustworthy from day one.”
+            </p>
+            <div class="author-row">
+              <div class="author-avatar">SM</div>
+              <div class="author-info">
+                <strong>Shabnam M.</strong>
+                <span>Daughter & Family Care Organizer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="safety-banner reveal reveal-delay-1" style="flex-direction:column; justify-content:center; align-items:flex-start;">
+            <span class="eyebrow" style="color:var(--primary);">CareX Safety Standard</span>
+            <h3 style="font-size:1.4rem; margin-bottom:0.5rem;">Care built on clarity and confidence.</h3>
+            <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:1.25rem;">
+              Strict identity verification, upfront transparent pricing, transparent booking logs, and in-app family coordination.
+            </p>
+            <button class="btn btn-secondary btn-sm" type="button" data-safety-info>Read Safety Protocols</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. FINAL CTA SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="cta-banner reveal">
+            <h2>Care shouldn't be complicated.</h2>
+            <p>Find trusted support for yourself or someone you love.</p>
+            <div class="cta-actions">
+              <a href="find-care.html" class="btn btn-white btn-lg">Find Care</a>
+              <a href="register.html" class="btn btn-secondary btn-lg" style="background:rgba(255,255,255,0.1); color:#ffffff; border-color:rgba(255,255,255,0.25);">Become a Care Provider</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 14. FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <a href="index.html" class="brand" aria-label="CareX Home">
+              <span class="brand-mark" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+                </svg>
+              </span>
+              <span class="brand-name">Care<span>X</span></span>
+            </a>
+            <p class="footer-tagline">
+              Care when you need it.<br />Help when it matters.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul class="footer-links">
+              <li><a href="find-care.html">Find Care</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="about.html">About CareX</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>For Providers</h4>
+            <ul class="footer-links">
+              <li><a href="register.html">Become a Provider</a></li>
+              <li><a href="login.html">Provider Login</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul class="footer-links">
+              <li><a href="#" data-safety-info>Safety & Verification</a></li>
+              <li><a href="about.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="year">2026</span> CareX. All rights reserved.</p>
+          <p class="footer-disclaimer">Demo prototype — not a medical emergency service.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Login | CareX</title>
+    <meta name="description" content="Sign in to your CareX account to access your family care bookings or provider portal." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="CareX Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+            </svg>
+          </span>
+          <span class="brand-name">Care<span>X</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="find-care.html">Find Care</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="about.html">About</a>
+        </nav>
+
+        <!-- Navbar Actions -->
+        <div class="nav-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="mobile-toggle" type="button" aria-label="Open menu" data-drawer-open>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="section" style="display:grid; place-items:center; min-height:calc(100vh - 180px); padding:2.5rem 1rem;">
+      <div class="modal-panel" style="width:min(460px, 100%); padding:clamp(2rem, 5vw, 2.75rem); box-shadow:var(--shadow-xl); border-radius:var(--radius-2xl);">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <span class="eyebrow" style="justify-content:center;">Demo Portal</span>
+          <h1 style="font-size:1.85rem; margin-top:0.25rem;">Welcome back to CareX</h1>
+          <p class="text-muted" style="font-size:0.92rem; margin-top:0.4rem;">
+            Sign in to access your family requests or provider dashboard.
+          </p>
+        </div>
+
+        <!-- 1-Click Fast Demo Fillers -->
+        <div style="background:var(--bg-surface-alt); border:1px solid var(--border); border-radius:var(--radius-md); padding:0.85rem 1rem; margin-bottom:1.5rem;">
+          <span style="display:block; font-size:0.75rem; text-transform:uppercase; font-weight:700; color:var(--text-muted); letter-spacing:0.06em; margin-bottom:0.5rem;">
+            Quick Demo Autofill
+          </span>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="customer">
+              Customer (Priya)
+            </button>
+            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="provider">
+              Provider (Aisha)
+            </button>
+          </div>
+        </div>
+
+        <!-- Standard Login Form -->
+        <form id="demo-login-form">
+          <div style="display:flex; flex-direction:column; gap:1.15rem;">
+            <div class="field">
+              <label for="login-email">Email Address</label>
+              <input id="login-email" type="email" placeholder="user@gmail.com" required value="user@gmail.com" />
+            </div>
+
+            <div class="field">
+              <label for="login-password">Password</label>
+              <input id="login-password" type="password" placeholder="1234" required value="1234" />
+            </div>
+
+            <button class="btn btn-primary btn-lg w-full" type="submit" style="margin-top:0.5rem;">
+              Sign In
+            </button>
+          </div>
+        </form>
+
+        <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--border); text-align:center;">
+          <p style="font-size:0.82rem; color:var(--text-muted);">
+            Prototype credentials:<br />
+            <strong>user@gmail.com</strong> / <strong>1234</strong> (Customer)<br />
+            <strong>provider@gmail.com</strong> / <strong>1234</strong> (Provider)
+          </p>
+          <p style="font-size:0.75rem; color:var(--text-subtle); margin-top:0.65rem;">
+            Demo prototype authentication — not intended for secure medical production storage.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom" style="border:none; padding:0;">
+          <p>© <span id="year">2026</span> CareX</p>
+          <p class="footer-disclaimer">Demo prototype — not a medical emergency service.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

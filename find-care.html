@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Find Care | CareX Marketplace</title>
+    <meta
+      name="description"
+      content="Find verified local caregivers and companions for elderly care and hospital visits."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="CareX Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+            </svg>
+          </span>
+          <span class="brand-name">Care<span>X</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="find-care.html" class="active">Find Care</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="about.html">About</a>
+        </nav>
+
+        <!-- Navbar Actions -->
+        <div class="nav-actions">
+          <button class="btn btn-primary btn-sm btn-desktop-only" type="button" data-request-care>Request Care</button>
+          <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="mobile-toggle" type="button" aria-label="Open menu" data-drawer-open>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- Marketplace Header -->
+      <section class="section-sm" style="background:var(--bg-subtle); border-bottom:1px solid var(--border);">
+        <div class="container" style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1.25rem;">
+          <div>
+            <span class="eyebrow">Local Caregiver Directory</span>
+            <h1 class="section-title">Find trusted care for your family</h1>
+            <p class="lead-text" style="margin-top:0.5rem;">
+              Filter verified companions by neighborhood, rating, schedule and transparent pricing.
+            </p>
+          </div>
+          <div style="display:flex; gap:0.75rem;">
+            <a href="customer-dashboard.html" class="btn btn-secondary">Open Dashboard</a>
+            <button class="btn btn-primary" type="button" data-request-care>Request Match</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filter Controls Bar -->
+      <section style="padding:1.75rem 0;">
+        <div class="container">
+          <div class="filter-bar">
+            <!-- Service Filter -->
+            <div class="field">
+              <label for="service">Service</label>
+              <select id="service">
+                <option value="">All Services</option>
+                <option value="Elderly Care">Elderly Care</option>
+                <option value="Hospital Companion">Hospital Companion</option>
+                <option value="Appointment Assistance">Appointment Assistance</option>
+                <option value="Everyday Assistance">Everyday Assistance</option>
+              </select>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="field">
+              <label for="location">Location</label>
+              <select id="location">
+                <option value="">All Locations</option>
+                <option value="Shaheen Bagh">Shaheen Bagh</option>
+                <option value="Jamia Nagar">Jamia Nagar</option>
+                <option value="Okhla">Okhla</option>
+                <option value="Saket">Saket</option>
+                <option value="Lajpat Nagar">Lajpat Nagar</option>
+                <option value="Greater Kailash">Greater Kailash</option>
+              </select>
+            </div>
+
+            <!-- Price Band Filter -->
+            <div class="field">
+              <label for="price">Price Band</label>
+              <select id="price">
+                <option value="Any">Any Price</option>
+                <option value="₹10k - ₹15k">₹10,000 – ₹15,000</option>
+                <option value="₹15k - ₹20k">₹15,000 – ₹20,000</option>
+                <option value="₹20k+">₹20,000+</option>
+              </select>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="field">
+              <label for="rating">Rating</label>
+              <select id="rating">
+                <option value="0">Any Rating</option>
+                <option value="4.5">4.5+ ★</option>
+                <option value="4.7">4.7+ ★</option>
+                <option value="4.8">4.8+ ★</option>
+                <option value="4.9">4.9+ ★</option>
+              </select>
+            </div>
+
+            <!-- Availability Filter -->
+            <div class="field">
+              <label for="availability">Availability</label>
+              <select id="availability">
+                <option value="Available">Available Today</option>
+                <option value="Any">Any Schedule</option>
+                <option value="Limited">Limited Slots</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Provider Grid Listing -->
+      <section class="section" style="padding-top:1rem;">
+        <div class="container">
+          <div class="marketplace-grid" id="providers-container">
+            <!-- Provider 1: Aisha Khan -->
+            <article class="provider-card">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+                  alt="Aisha Khan - Verified Care Provider"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.9 ★ (38)</div>
+              </div>
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Aisha Khan</h3>
+                  <span class="status-dot" style="background:var(--success);" title="Available"></span>
+                </div>
+                <div class="provider-role-label">Elderly Care</div>
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>5 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Shaheen Bagh</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <span style="color:var(--success); font-weight:600;">Available this week</span>
+                  </div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">
+                  Routine support, compassionate companionship and transparent daily family updates.
+                </p>
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹18,000 <span>/ month</span>
+                  </div>
+                  <div style="display:flex; gap:0.5rem;">
+                    <a href="provider-profile.html" class="btn btn-secondary btn-sm">Profile</a>
+                    <button class="btn btn-primary btn-sm" type="button" data-request-care>Book</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Provider 2: Rahul Mehta -->
+            <article class="provider-card">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+                  alt="Rahul Mehta - Hospital Companion"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.8 ★ (42)</div>
+              </div>
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Rahul Mehta</h3>
+                  <span class="status-dot" style="background:var(--success);" title="Available"></span>
+                </div>
+                <div class="provider-role-label">Hospital Companion</div>
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>3 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Jamia Nagar</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <span style="color:var(--success); font-weight:600;">Available today</span>
+                  </div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">
+                  Hospital accompaniment, appointment check-ins, queue navigation and transport support.
+                </p>
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹800 <span>/ day</span>
+                  </div>
+                  <div style="display:flex; gap:0.5rem;">
+                    <a href="provider-profile.html" class="btn btn-secondary btn-sm">Profile</a>
+                    <button class="btn btn-primary btn-sm" type="button" data-request-care>Book</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Provider 3: Meena Sharma -->
+            <article class="provider-card">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
+                  alt="Meena Sharma - Care Provider"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.9 ★ (64)</div>
+              </div>
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Meena Sharma</h3>
+                  <span class="status-dot" style="background:var(--text-muted);" title="Not available"></span>
+                </div>
+                <div class="provider-role-label">Elderly Care</div>
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>7 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Okhla</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <span style="color:var(--text-muted); font-weight:600;">Not available currently</span>
+                  </div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">
+                  Daily routines, medication reminders, wholesome meal assistance and gentle mobility help.
+                </p>
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹20,000 <span>/ month</span>
+                  </div>
+                  <div style="display:flex; gap:0.5rem;">
+                    <a href="provider-profile.html" class="btn btn-secondary btn-sm">Profile</a>
+                    <button class="btn btn-secondary btn-sm" type="button" disabled style="opacity:0.6;">Booked</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Provider 4: Farah Ahmed -->
+            <article class="provider-card">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=600&q=80"
+                  alt="Farah Ahmed - Appointment Assistance"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.7 ★ (29)</div>
+              </div>
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Farah Ahmed</h3>
+                  <span class="status-dot" style="background:var(--success);" title="Available"></span>
+                </div>
+                <div class="provider-role-label">Appointment Assistance</div>
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>4 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Saket</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <span style="color:var(--success); font-weight:600;">Available tomorrow</span>
+                  </div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">
+                  Calm clinic visit support, doctor notes organization, and prescription collection.
+                </p>
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹950 <span>/ visit</span>
+                  </div>
+                  <div style="display:flex; gap:0.5rem;">
+                    <a href="provider-profile.html" class="btn btn-secondary btn-sm">Profile</a>
+                    <button class="btn btn-primary btn-sm" type="button" data-request-care>Book</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Provider 5: Neeraj Singh -->
+            <article class="provider-card">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+                  alt="Neeraj Singh - Care Provider"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.6 ★ (22)</div>
+              </div>
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Neeraj Singh</h3>
+                  <span class="status-dot" style="background:var(--success);" title="Available"></span>
+                </div>
+                <div class="provider-role-label">Everyday Assistance</div>
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>6 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Lajpat Nagar</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <span style="color:var(--success); font-weight:600;">Available weekdays</span>
+                  </div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">
+                  Reliable grocery errands, walking companionship and gentle household assistance.
+                </p>
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹16,000 <span>/ month</span>
+                  </div>
+                  <div style="display:flex; gap:0.5rem;">
+                    <a href="provider-profile.html" class="btn btn-secondary btn-sm">Profile</a>
+                    <button class="btn btn-primary btn-sm" type="button" data-request-care>Book</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Provider 6: Kavita Verma -->
+            <article class="provider-card">
+              <div class="provider-image-holder">
+                <img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80"
+                  alt="Kavita Verma - Hospital Companion"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="provider-badge-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Verified
+                </div>
+                <div class="provider-rating-pill">4.9 ★ (51)</div>
+              </div>
+              <div class="provider-body">
+                <div class="provider-header">
+                  <h3>Kavita Verma</h3>
+                  <span class="status-dot" style="background:var(--success);" title="Available"></span>
+                </div>
+                <div class="provider-role-label">Hospital Companion</div>
+                <div class="provider-details-list">
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>5 years experience</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Greater Kailash</span>
+                  </div>
+                  <div class="provider-detail-item">
+                    <span style="color:var(--success); font-weight:600;">Available this week</span>
+                  </div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5;">
+                  Empathetic guidance during hospital admissions, diagnostics and patient check-ins.
+                </p>
+                <div class="provider-footer">
+                  <div class="provider-price">
+                    ₹1,100 <span>/ day</span>
+                  </div>
+                  <div style="display:flex; gap:0.5rem;">
+                    <a href="provider-profile.html" class="btn btn-secondary btn-sm">Profile</a>
+                    <button class="btn btn-primary btn-sm" type="button" data-request-care>Book</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <a href="index.html" class="brand" aria-label="CareX Home">
+              <span class="brand-mark" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+                </svg>
+              </span>
+              <span class="brand-name">Care<span>X</span></span>
+            </a>
+            <p class="footer-tagline">
+              Care when you need it.<br />Help when it matters.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul class="footer-links">
+              <li><a href="find-care.html">Find Care</a></li>
+              <li><a href="index.html#how-it-works">How It Works</a></li>
+              <li><a href="about.html">About CareX</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>For Providers</h4>
+            <ul class="footer-links">
+              <li><a href="register.html">Become a Provider</a></li>
+              <li><a href="login.html">Provider Login</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul class="footer-links">
+              <li><a href="#" data-safety-info>Safety & Verification</a></li>
+              <li><a href="about.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="year">2026</span> CareX. All rights reserved.</p>
+          <p class="footer-disclaimer">Demo prototype — not a medical emergency service.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

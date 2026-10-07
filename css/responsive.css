@@ -1,0 +1,369 @@
+/* ==========================================================================
+   CAREX — RESPONSIVE ADAPTATIONS & VIEWPORT OPTIMIZATIONS
+   Tested strictly for: 360px, 390px, 430px, 768px, 1024px, 1440px
+   Zero horizontal overflow guarantee across all viewports.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TABLET / NOTEBOOK (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-copy {
+    text-align: left;
+    max-width: 640px;
+  }
+
+  .hero-visual {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .services-bento {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .service-card-featured {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tracking-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .marketplace-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-bar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. MOBILE & TABLET PORTRAIT (max-width: 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Navbar adjustments */
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-actions .btn-desktop-only,
+  .nav-actions .btn-ghost {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: inline-flex !important;
+  }
+
+  /* Typography scales */
+  .hero-title {
+    font-size: clamp(2.1rem, 8.5vw, 2.85rem) !important;
+    max-width: 100% !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 6vw, 2.15rem) !important;
+  }
+
+  .hero-copy .lead-text {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Hero visual on mobile */
+  .hero-visual {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .hero-image-wrapper {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-xl);
+  }
+
+  /* Prevent floating cards from overflowing horizontal edges */
+  .floating-card-1 {
+    top: 12px !important;
+    left: 12px !important;
+    max-width: calc(100% - 24px) !important;
+  }
+
+  .floating-card-2 {
+    bottom: 12px !important;
+    right: 12px !important;
+    max-width: calc(100% - 24px) !important;
+  }
+
+  /* Services layout */
+  .services-bento {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Trust Section */
+  .trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  /* Timeline switches to Vertical Layout */
+  .timeline-track {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-progress-bar {
+    top: 10px;
+    bottom: 10px;
+    left: 29px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .timeline-progress-line {
+    width: 2px;
+    height: 75%;
+  }
+
+  .timeline-step-item {
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-node {
+    position: absolute;
+    left: -2rem;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  .timeline-step-item p {
+    max-width: 100%;
+  }
+
+  /* Marketplace preview */
+  .marketplace-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Testimonials and Safety */
+  .safety-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* CTA Banner */
+  .cta-banner {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  /* About page */
+  .two-sides-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Dashboards */
+  .dashboard-shell {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-top: 1.25rem;
+  }
+
+  .dashboard-sidebar {
+    position: static;
+    padding: 1rem;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-link {
+    white-space: nowrap;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .filter-bar {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  /* Toast Notification on Mobile: Centered Bottom */
+  .toast-container {
+    right: 50% !important;
+    bottom: 16px !important;
+    transform: translateX(50%) !important;
+    width: min(360px, calc(100% - 32px)) !important;
+    align-items: center;
+  }
+
+  .toast {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Selection modal on mobile */
+  .selection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-panel {
+    padding: 1.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. SMALL MOBILE VIEWPORTS (max-width: 430px — 360px, 390px, 430px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 430px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-visual {
+    margin-top: 1.5rem;
+  }
+
+  .hero-image-wrapper {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Trust grid on ultra compact screen */
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-pillar-card {
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
+    padding: 1.15rem 1.25rem;
+  }
+
+  .trust-pillar-icon {
+    margin-bottom: 0;
+  }
+
+  /* Live Map Card overlay */
+  .map-canvas-area {
+    height: 300px;
+  }
+
+  .map-status-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .trip-meta-eta {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .stat-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .item-row .inline-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

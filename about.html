@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>About CareX | Technology that makes caring easier</title>
+    <meta
+      name="description"
+      content="CareX connects families with trusted local people who provide elderly care, companionship and hospital assistance."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="CareX Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+            </svg>
+          </span>
+          <span class="brand-name">Care<span>X</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="find-care.html">Find Care</a>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="about.html" class="active">About</a>
+        </nav>
+
+        <!-- Navbar Actions -->
+        <div class="nav-actions">
+          <button class="btn btn-primary btn-sm btn-desktop-only" type="button" data-request-care>Request Care</button>
+          <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="mobile-toggle" type="button" aria-label="Open menu" data-drawer-open>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- 15. ABOUT HERO -->
+      <section class="section" style="padding-bottom: 2rem;">
+        <div class="container about-hero-grid">
+          <div class="hero-copy animate-hero-text">
+            <span class="eyebrow">Our Purpose</span>
+            <h1 class="hero-title">
+              Technology that makes caring for loved ones a little easier.
+            </h1>
+            <p class="lead-text">
+              CareX connects families with local people who can provide elderly care, companionship and hospital assistance.
+            </p>
+          </div>
+
+          <div class="hero-visual animate-hero-image">
+            <div class="hero-image-wrapper" style="aspect-ratio: 4 / 3.2;">
+              <img
+                src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1200&q=80"
+                alt="Caregiver tenderly holding elderly person's hand"
+                fetchpriority="high"
+                width="800"
+                height="600"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY CAREX? SECTION -->
+      <section class="section" style="background:var(--bg-subtle);">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">The Challenge</span>
+            <h2 class="section-title">Why CareX?</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Caring for aging family members shouldn't depend on luck or informal networks.
+            </p>
+          </div>
+
+          <div class="grid-2" style="align-items:stretch;">
+            <div class="problem-solution-card reveal reveal-delay-1">
+              <h3 style="font-size:1.35rem; margin-bottom:0.75rem; color:var(--text-main);">The Problem</h3>
+              <p style="color:var(--text-secondary); margin-bottom:1rem;">
+                Modern families face difficult logistical realities when balancing careers and senior health:
+              </p>
+              <ul class="problem-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  <span><strong>Distance:</strong> Children frequently live far away in different cities or busy work districts.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  <span><strong>Hospital Navigation:</strong> Elderly parents often struggle to reach diagnostic appointments and hospital check-ins alone.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  <span><strong>Reliability:</strong> Finding trustworthy, background-checked local assistance on short notice is notoriously difficult.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="problem-solution-card reveal reveal-delay-2" style="background:linear-gradient(135deg, var(--bg-surface), var(--primary-subtle)); border-color:var(--primary-border);">
+              <h3 style="font-size:1.35rem; margin-bottom:0.75rem; color:var(--primary);">The CareX Solution</h3>
+              <p style="color:var(--text-secondary); margin-bottom:1.25rem;">
+                CareX brings the two sides together through one dignified, transparent digital marketplace:
+              </p>
+              
+              <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.25rem; margin-bottom:1rem; box-shadow:var(--shadow-xs);">
+                <strong style="display:block; font-size:1.05rem; color:var(--text-main); margin-bottom:0.25rem;">People Who Need Help</strong>
+                <p style="color:var(--text-muted); font-size:0.88rem;">Seniors and their family organizers seeking dignified, dependable companions.</p>
+              </div>
+
+              <div style="text-align:center; font-weight:800; color:var(--primary); font-size:1.25rem; margin:-4px 0 6px;">+</div>
+
+              <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.25rem; box-shadow:var(--shadow-xs);">
+                <strong style="display:block; font-size:1.05rem; color:var(--text-main); margin-bottom:0.25rem;">People Willing to Provide Help</strong>
+                <p style="color:var(--text-muted); font-size:0.88rem;">Experienced local companions and caregivers ready to offer heartfelt neighborhood support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TWO SIDES. ONE SIMPLE PLATFORM -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header centered reveal">
+            <span class="eyebrow">Shared Community</span>
+            <h2 class="section-title">Two sides. One simple platform.</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Designed with balanced clarity for both families looking for care and caregivers sharing their time.
+            </p>
+          </div>
+
+          <div class="two-sides-grid">
+            <!-- Left: For Families -->
+            <article class="side-card reveal reveal-delay-1">
+              <span class="side-card-tag">For Families</span>
+              <h3>Find local care providers and companions when you need support.</h3>
+              <p>
+                Whether it's an urgent 10:30 AM appointment at AIIMS, daily medicine reminders, or warm conversation over afternoon tea, families can book verified support without friction or hidden agency fees.
+              </p>
+              <div style="margin-top:2rem;">
+                <a href="find-care.html" class="btn btn-primary">Find a Provider</a>
+              </div>
+            </article>
+
+            <!-- Right: For Care Providers -->
+            <article class="side-card reveal reveal-delay-2">
+              <span class="side-card-tag" style="background:#ecfdf5; color:#059669;">For Care Providers</span>
+              <h3>Turn your experience and time into meaningful work while helping elderly people in your community.</h3>
+              <p>
+                Set your own weekly availability, choose your comfortable service radius, build honest neighborhood relationships, and earn transparent hourly or monthly compensation with dignity.
+              </p>
+              <div style="margin-top:2rem;">
+                <a href="register.html" class="btn btn-secondary">Become a Care Provider</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW CAREX WORKS (4 STEPS) -->
+      <section class="section" style="background:var(--bg-subtle);">
+        <div class="container">
+          <div class="section-header centered reveal">
+            <span class="eyebrow">Simple Workflow</span>
+            <h2 class="section-title">How CareX works</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Transparent from initial search to companion check-in.
+            </p>
+          </div>
+
+          <div class="grid-4" style="margin-top:2.5rem;">
+            <!-- 01 -->
+            <div class="service-card reveal reveal-delay-1" style="padding:1.5rem; text-align:center; align-items:center;">
+              <div class="service-icon-wrap" style="margin-bottom:1rem;" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <span class="service-number" style="margin-bottom:0.5rem;">01</span>
+              <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Create a request</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Share date, location and the exact support required.</p>
+            </div>
+
+            <!-- 02 -->
+            <div class="service-card reveal reveal-delay-2" style="padding:1.5rem; text-align:center; align-items:center;">
+              <div class="service-icon-wrap" style="margin-bottom:1rem;" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="service-number" style="margin-bottom:0.5rem;">02</span>
+              <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Choose a provider</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Compare verified neighborhood caregivers and reviews.</p>
+            </div>
+
+            <!-- 03 -->
+            <div class="service-card reveal reveal-delay-3" style="padding:1.5rem; text-align:center; align-items:center;">
+              <div class="service-icon-wrap" style="margin-bottom:1rem;" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <polyline points="9 11 12 14 22 4"></polyline>
+                </svg>
+              </div>
+              <span class="service-number" style="margin-bottom:0.5rem;">03</span>
+              <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Confirm the booking</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Confirm pricing and schedule details with instant notification.</p>
+            </div>
+
+            <!-- 04 -->
+            <div class="service-card reveal" style="padding:1.5rem; text-align:center; align-items:center;">
+              <div class="service-icon-wrap" style="margin-bottom:1rem;" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <span class="service-number" style="margin-bottom:0.5rem;">04</span>
+              <h3 style="font-size:1.15rem; margin-bottom:0.5rem;">Stay connected</h3>
+              <p style="font-size:0.88rem; color:var(--text-muted);">Real-time companion ETA and post-appointment updates.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16. PROJECT TEAM SECTION -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header centered reveal">
+            <span class="eyebrow">Project Team</span>
+            <h2 class="section-title">The people behind CareX</h2>
+            <p class="lead-text" style="margin-top:0.75rem;">
+              Built with empathy, simplicity and a focus on better elderly care.
+            </p>
+          </div>
+
+          <div class="team-grid">
+            <!-- MEMBER 1: SAMIA NAAZ -->
+            <article class="team-card reveal reveal-delay-1">
+              <div class="team-avatar-wrap" aria-label="Samia Naaz avatar">
+                <span>SN</span>
+              </div>
+              <h3 class="team-name">SAMIA NAAZ</h3>
+              <p class="team-role">Project Member</p>
+            </article>
+
+            <!-- MEMBER 2: SHAULAT JAHAN -->
+            <article class="team-card reveal reveal-delay-2">
+              <div class="team-avatar-wrap" aria-label="Shaulat Jahan avatar">
+                <span>SJ</span>
+              </div>
+              <h3 class="team-name">SHAULAT JAHAN</h3>
+              <p class="team-role">Project Member</p>
+            </article>
+
+            <!-- MEMBER 3: RIVA NAAZ -->
+            <article class="team-card reveal reveal-delay-3">
+              <div class="team-avatar-wrap" aria-label="Riva Naaz avatar">
+                <span>RN</span>
+              </div>
+              <h3 class="team-name">RIVA NAAZ</h3>
+              <p class="team-role">Project Member</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <a href="index.html" class="brand" aria-label="CareX Home">
+              <span class="brand-mark" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                  <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+                </svg>
+              </span>
+              <span class="brand-name">Care<span>X</span></span>
+            </a>
+            <p class="footer-tagline">
+              Care when you need it.<br />Help when it matters.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul class="footer-links">
+              <li><a href="find-care.html">Find Care</a></li>
+              <li><a href="index.html#how-it-works">How It Works</a></li>
+              <li><a href="about.html">About CareX</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>For Providers</h4>
+            <ul class="footer-links">
+              <li><a href="register.html">Become a Provider</a></li>
+              <li><a href="login.html">Provider Login</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul class="footer-links">
+              <li><a href="#" data-safety-info>Safety & Verification</a></li>
+              <li><a href="about.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="year">2026</span> CareX. All rights reserved.</p>
+          <p class="footer-disclaimer">Demo prototype — not a medical emergency service.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
