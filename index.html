@@ -68,53 +68,78 @@
             </div>
           </div>
 
-          <!-- Right Column: Editorial Photograph & Floating Cards -->
+          <!-- Right Column: 3D Spatial Radar Live Dispatch (Replaces static photo per user request) -->
           <div class="hero-visual animate-hero-image">
-            <div class="hero-image-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80"
-                alt="Compassionate elderly caregiver offering warm companionship"
-                fetchpriority="high"
-                width="800"
-                height="600"
-              />
+            <div class="live-map-3d-scene">
+              <div class="live-map-card-3d">
+                <div class="map-header-bar">
+                  <span class="map-demo-label">
+                    <span class="status-dot pulsing" aria-hidden="true"></span>
+                    3D Spatial Radar · Live Dispatch
+                  </span>
+                  <span style="font-size:0.78rem; color:#38bdf8; font-weight:700; background:rgba(14,165,233,0.15); border:1px solid rgba(14,165,233,0.35); padding:2px 8px; border-radius:999px;">
+                    42 Companions Live
+                  </span>
+                </div>
 
-              <!-- Floating Card 1: Verified Care Provider -->
-              <div class="floating-card floating-card-1 animate-float-1">
-                <div class="card-badge">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                <div class="map-canvas-3d" aria-label="3D Live Care Tracking Simulation">
+                  <!-- 3D Spatial Grid Mesh -->
+                  <div class="map-grid-mesh"></div>
+
+                  <!-- 360-degree rotating radar scan sweep -->
+                  <div class="radar-sweep-beam"></div>
+
+                  <!-- Spline Route Path -->
+                  <svg class="map-route-svg" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; z-index:10;">
+                    <path d="M 60 270 Q 170 200 230 150 T 360 80" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-dasharray="6,6" opacity="0.85"></path>
                   </svg>
-                  Verified Care Provider
-                </div>
-                <div class="card-person-row">
-                  <div class="card-avatar" aria-hidden="true">AK</div>
-                  <div class="card-info">
-                    <strong>Aisha Khan</strong>
-                    <span>4.9 ★ · 5 yrs exp</span>
-                  </div>
-                </div>
-                <div class="card-status-pill">
-                  <span class="status-dot pulsing" aria-hidden="true"></span>
-                  Available today
-                </div>
-              </div>
 
-              <!-- Floating Card 2: Hospital Companion Scheduled Visit -->
-              <div class="floating-card floating-card-2 animate-float-2">
-                <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; color:var(--primary); margin-bottom:4px;">
-                  Hospital Companion
-                </div>
-                <div class="card-person-row">
-                  <div class="card-avatar" style="background:#e0f2fe; color:#0369a1;" aria-hidden="true">AI</div>
-                  <div class="card-info">
-                    <strong>AIIMS Appointment</strong>
-                    <span>Today · 10:30 AM</span>
+                  <!-- Animated Travelling Photon Particle -->
+                  <div class="route-photon"></div>
+
+                  <!-- Destination Beacon: AIIMS Delhi -->
+                  <div class="map-pin" style="top:55px; right:35px; z-index:12;">
+                    <div class="map-pin-pulse" style="background:#0284c7; box-shadow:0 0 0 8px rgba(2,132,199,0.35);"></div>
+                    <span class="map-pin-tag" style="background:#0b1526; border:1px solid rgba(14,165,233,0.4);">🏥 Destination: AIIMS Delhi</span>
                   </div>
-                </div>
-                <div style="margin-top:6px; font-size:0.75rem; color:var(--text-muted); display:flex; align-items:center; gap:4px;">
-                  <span class="status-dot" style="background:var(--primary);" aria-hidden="true"></span>
-                  Companion confirmed
+
+                  <!-- Live Dispatch Beacon: Rahul Mehta -->
+                  <div class="map-pin" style="bottom:90px; left:45px; z-index:12;">
+                    <div class="map-pin-pulse" style="background:#10b981; box-shadow:0 0 0 8px rgba(16,185,129,0.35);"></div>
+                    <span class="map-pin-tag" style="background:#0b1526; border:1px solid rgba(16,185,129,0.4);">● Rahul Mehta (On the way)</span>
+                  </div>
+
+                  <!-- Available Nearby Beacon: Aisha Khan -->
+                  <div class="map-pin" style="top:100px; left:60px; z-index:11;">
+                    <div class="map-pin-pulse" style="background:#38bdf8; width:8px; height:8px; box-shadow:0 0 0 5px rgba(56,189,248,0.25);"></div>
+                    <span class="map-pin-tag" style="background:rgba(11,21,38,0.85); font-size:0.7rem; padding:2px 7px;">Aisha Khan · Available</span>
+                  </div>
+
+                  <!-- Floating 3D HUD Telemetry Overlay -->
+                  <div class="hud-card-floating">
+                    <div class="companion-profile-snippet">
+                      <img
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                        alt="Rahul Mehta portrait"
+                        loading="lazy"
+                        width="44"
+                        height="44"
+                        style="border-radius:50%; border:2px solid var(--primary); object-fit:cover;"
+                      />
+                      <div>
+                        <strong style="color:#ffffff; font-size:0.95rem;">Rahul Mehta</strong>
+                        <span style="display:flex; align-items:center; gap:5px; margin-top:2px; font-size:0.8rem; color:#94a3b8;">
+                          <span class="status-dot pulsing" style="background:#10b981; width:7px; height:7px;"></span>
+                          Verified Companion · 3D Tracked
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="trip-meta-eta" style="text-align:right;">
+                      <span class="eta-pill" style="background:rgba(14,165,233,0.18); color:#38bdf8; border:1px solid rgba(14,165,233,0.4); padding:4px 10px; border-radius:999px; font-weight:700; font-size:0.82rem;">ETA: 18 min</span>
+                      <span class="destination-label" style="display:block; font-size:0.75rem; color:#94a3b8; margin-top:4px;">Speed: 24 km/h · Sector AIIMS</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

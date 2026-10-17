@@ -81,7 +81,7 @@
 
   /* Layout */
   --container-max: 1200px;
-  --header-height: 74px;
+  --header-height: 80px;
 }
 
 /* Permanent Dark Theme Enforced (Light theme removed per specifications) */
@@ -304,23 +304,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo-img {
-  height: 42px;
+  height: 52px;
   width: auto;
-  max-width: 175px;
+  max-width: 220px;
   object-fit: contain;
   display: block;
   transition: transform var(--transition-fast, 0.2s ease), filter var(--transition-fast, 0.2s ease);
 }
 
 .brand:hover .brand-logo-img {
-  transform: scale(1.02);
-  filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.45));
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 16px rgba(14, 165, 233, 0.55));
 }
 
 .footer-logo-img {
-  height: 44px;
-  max-width: 190px;
-  margin-bottom: 0.65rem;
+  height: 58px;
+  width: auto;
+  max-width: 240px;
+  margin-bottom: 0.85rem;
 }
 
 .brand-mark {

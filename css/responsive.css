@@ -96,6 +96,12 @@
     margin-bottom: 1.5rem !important;
   }
 
+  /* Navbar Brand Logo */
+  .brand-logo-img {
+    height: 44px !important;
+    max-width: 185px !important;
+  }
+
   /* Hero visual on mobile */
   .hero-visual {
     max-width: 100%;
@@ -105,6 +111,23 @@
   .hero-image-wrapper {
     aspect-ratio: 4 / 3;
     border-radius: var(--radius-xl);
+  }
+
+  /* 3D Spatial Radar Card on Mobile */
+  .live-map-card-3d {
+    transform: rotateX(6deg) rotateY(-3deg) rotateZ(0deg) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 24px rgba(14, 165, 233, 0.15) !important;
+  }
+
+  .map-canvas-3d {
+    height: 340px !important;
+  }
+
+  .hud-card-floating {
+    padding: 0.75rem 0.85rem !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
   }
 
   /* Prevent floating cards from overflowing horizontal edges */
