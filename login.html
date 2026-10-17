@@ -67,15 +67,14 @@
         <!-- 1-Click Fast Demo Fillers -->
         <div style="background:var(--bg-surface-alt); border:1px solid var(--border); border-radius:var(--radius-md); padding:0.85rem 1rem; margin-bottom:1.5rem;">
           <span style="display:block; font-size:0.75rem; text-transform:uppercase; font-weight:700; color:var(--text-muted); letter-spacing:0.06em; margin-bottom:0.5rem;">
-            Quick Demo Autofill
+            1-Click Demo Profiles (Password: 1234)
           </span>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
-            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="customer">
-              Customer (Priya)
-            </button>
-            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="provider">
-              Provider (Aisha)
-            </button>
+          <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="aisha">Aisha (Provider)</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="rahul">Rahul (Provider)</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="meena">Meena (Provider)</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="customer">Priya (Customer)</button>
+            <button class="btn btn-secondary btn-sm" type="button" data-quick-login="admin" style="border-color:var(--primary); color:var(--primary);">Admin Portal</button>
           </div>
         </div>
 
@@ -83,8 +82,8 @@
         <form id="demo-login-form">
           <div style="display:flex; flex-direction:column; gap:1.15rem;">
             <div class="field">
-              <label for="login-email">Email Address</label>
-              <input id="login-email" type="email" placeholder="user@gmail.com" required value="user@gmail.com" />
+              <label for="login-email">Username or Email</label>
+              <input id="login-email" type="text" placeholder="Enter username (e.g. aisha, rahul, priya, admin)" required value="aisha" />
             </div>
 
             <div class="field">
@@ -93,19 +92,19 @@
             </div>
 
             <button class="btn btn-primary btn-lg w-full" type="submit" style="margin-top:0.5rem;">
-              Sign In
+              Sign In to CareX
             </button>
           </div>
         </form>
 
         <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--border); text-align:center;">
           <p style="font-size:0.82rem; color:var(--text-muted);">
-            Prototype credentials:<br />
-            <strong>user@gmail.com</strong> / <strong>1234</strong> (Customer)<br />
-            <strong>provider@gmail.com</strong> / <strong>1234</strong> (Provider)
+            Default password for all accounts is: <strong>1234</strong><br />
+            <strong>Providers:</strong> <code>aisha</code>, <code>rahul</code>, <code>meena</code>, <code>farah</code>, <code>neeraj</code>, <code>kavita</code><br />
+            <strong>Customer:</strong> <code>priya</code> &nbsp;|&nbsp; <strong>Admin:</strong> <code>admin</code>
           </p>
           <p style="font-size:0.75rem; color:var(--text-subtle); margin-top:0.65rem;">
-            Demo prototype authentication — not intended for secure medical production storage.
+            New provider? <a href="register.html" style="color:var(--primary); font-weight:600;">Register here</a> for Admin verification.
           </p>
         </div>
       </div>

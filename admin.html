@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Admin Approval Portal | CareX System Administration</title>
+    <meta name="description" content="Review, verify and approve caregiver registrations for the CareX healthcare marketplace." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script defer src="js/app.js"></script>
+    <style>
+      .admin-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 1rem;
+      }
+      .admin-table th {
+        text-align: left;
+        padding: 0.85rem 1rem;
+        background: var(--bg-surface-alt);
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid var(--border);
+      }
+      .admin-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        vertical-align: middle;
+      }
+      .admin-table tr:hover td {
+        background: var(--bg-surface-hover);
+      }
+      .applicant-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        box-shadow: var(--shadow-sm);
+        transition: transform var(--transition-fast), border-color var(--transition-fast);
+      }
+      .applicant-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+      }
+      .applicant-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .applicant-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: var(--radius-lg);
+        object-fit: cover;
+        border: 2px solid var(--primary-border);
+      }
+      .badge-pending {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.65rem;
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        border-radius: var(--radius-pill);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="header">
+      <div class="container navbar">
+        <a href="index.html" class="brand" aria-label="CareX Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+            </svg>
+          </span>
+          <span class="brand-name">Care<span>X</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="find-care.html">Marketplace</a>
+          <a href="admin.html" class="active">Admin Verification</a>
+          <a href="customer-dashboard.html">Customer View</a>
+          <a href="provider-dashboard.html">Provider View</a>
+        </nav>
+
+        <!-- Navbar Actions -->
+        <div class="nav-actions">
+          <span class="status-chip" style="background:rgba(14, 165, 233, 0.15); color:var(--primary); border:1px solid var(--primary-border); font-size:0.75rem;">
+            Admin: Superuser
+          </span>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <a href="login.html" class="btn btn-ghost btn-sm" onclick="localStorage.removeItem('carex-auth');">Sign Out</a>
+          <button class="mobile-toggle" type="button" aria-label="Open menu" data-drawer-open>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container section-sm" id="main-content">
+      <!-- Top Title & Controls -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.25rem; margin-bottom:2rem;">
+        <div>
+          <span class="eyebrow">Trust & Safety Operations</span>
+          <h1 class="section-title">Care Provider Verification Queue</h1>
+          <p class="lead-text" style="margin-top:0.35rem; font-size:0.95rem;">
+            Review incoming caregiver applications, conduct background screening, and approve them into the active marketplace.
+          </p>
+        </div>
+        <div style="display:flex; gap:0.75rem;">
+          <a href="register.html" class="btn btn-secondary btn-sm" target="_blank">+ Register Test Applicant</a>
+          <button class="btn btn-primary btn-sm" type="button" onclick="window.location.reload();">Refresh Queue</button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="stat-cards-grid" style="margin-bottom:2.25rem;">
+        <div class="stat-metric-card">
+          <span class="stat-label">Pending Reviews</span>
+          <span class="stat-value" id="stat-pending-count" style="color:#f59e0b;">2</span>
+          <span class="stat-change">Requires ID check</span>
+        </div>
+        <div class="stat-metric-card">
+          <span class="stat-label">Verified Providers</span>
+          <span class="stat-value" id="stat-live-count" style="color:var(--primary);">6</span>
+          <span class="stat-change">Active in marketplace</span>
+        </div>
+        <div class="stat-metric-card">
+          <span class="stat-label">Default Auth</span>
+          <span class="stat-value" style="font-size:1.35rem; color:var(--text-main);">pass: 1234</span>
+          <span class="stat-change">Username: [provider_name]</span>
+        </div>
+        <div class="stat-metric-card">
+          <span class="stat-label">Verification Rate</span>
+          <span class="stat-value" style="color:var(--success);">98.4%</span>
+          <span class="stat-change">Zero safety escalations</span>
+        </div>
+      </div>
+
+      <!-- Section: Pending Applications -->
+      <div class="dashboard-block" style="margin-bottom:2.5rem;">
+        <div class="dashboard-block-header">
+          <div>
+            <h2 style="font-size:1.25rem; margin:0;">Pending Provider Applications</h2>
+            <p class="text-muted" style="font-size:0.85rem; margin-top:2px;">
+              These applicants cannot log in or appear on search until approved by an administrator.
+            </p>
+          </div>
+          <span class="badge-pending" id="queue-badge">2 In Queue</span>
+        </div>
+
+        <div id="pending-applicants-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(360px, 1fr)); gap:1.25rem; margin-top:1.25rem;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Section: Active Verified Providers -->
+      <div class="dashboard-block">
+        <div class="dashboard-block-header">
+          <div>
+            <h2 style="font-size:1.25rem; margin:0;">Live Marketplace Providers</h2>
+            <p class="text-muted" style="font-size:0.85rem; margin-top:2px;">
+              Active caregivers currently accessible to families. Each can login using their username and password <code>1234</code>.
+            </p>
+          </div>
+          <a href="find-care.html" class="btn btn-secondary btn-sm" target="_blank">View Live Directory &rarr;</a>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Care Provider</th>
+                <th>Service & Area</th>
+                <th>Experience</th>
+                <th>Rate</th>
+                <th>Login Credentials</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="live-providers-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom" style="border:none; padding:0;">
+          <p>© <span id="year">2026</span> CareX Administrative Control Center.</p>
+          <p class="footer-disclaimer">Demo prototype — not a medical emergency service.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Admin Logic Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const renderAdminData = () => {
+          const pending = window.getPendingProviders ? window.getPendingProviders() : [];
+          const live = window.getCarexProviders ? window.getCarexProviders() : [];
+
+          // Update stats
+          const pendingCountEl = document.getElementById('stat-pending-count');
+          const liveCountEl = document.getElementById('stat-live-count');
+          const queueBadgeEl = document.getElementById('queue-badge');
+          if (pendingCountEl) pendingCountEl.textContent = pending.length;
+          if (liveCountEl) liveCountEl.textContent = live.length;
+          if (queueBadgeEl) queueBadgeEl.textContent = `${pending.length} In Queue`;
+
+          // Render Pending Grid
+          const grid = document.getElementById('pending-applicants-grid');
+          if (grid) {
+            if (pending.length === 0) {
+              grid.innerHTML = `
+                <div style="grid-column:1/-1; text-align:center; padding:3rem 1rem; background:var(--bg-subtle); border-radius:var(--radius-lg); border:1px dashed var(--border);">
+                  <div style="font-size:2rem; margin-bottom:0.5rem;">🎉</div>
+                  <strong style="font-size:1.1rem; color:var(--text-main);">No Pending Applications</strong>
+                  <p style="color:var(--text-muted); font-size:0.88rem; margin-top:0.25rem;">All caregiver applicants have been screened and approved!</p>
+                  <a href="register.html" class="btn btn-secondary btn-sm" style="margin-top:1rem;">Submit a Test Application</a>
+                </div>
+              `;
+            } else {
+              grid.innerHTML = pending.map((app) => `
+                <article class="applicant-card" id="card-${app.id}">
+                  <div class="applicant-header">
+                    <img src="${app.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'}" alt="${app.name}" class="applicant-avatar" />
+                    <div>
+                      <div style="display:flex; align-items:center; gap:0.5rem;">
+                        <strong style="font-size:1.15rem; color:var(--text-main);">${app.name}</strong>
+                        <span class="badge-pending" style="font-size:0.7rem; padding:0.15rem 0.45rem;">New</span>
+                      </div>
+                      <span style="font-size:0.85rem; color:var(--primary); font-weight:600;">${app.role || 'Care Companion'}</span>
+                      <p style="font-size:0.78rem; color:var(--text-muted); margin-top:2px;">Applied: ${app.appliedAt || 'Recent'}</p>
+                    </div>
+                  </div>
+
+                  <div style="font-size:0.85rem; color:var(--text-secondary); display:flex; flex-direction:column; gap:0.35rem; background:var(--bg-subtle); padding:0.85rem; border-radius:var(--radius-md);">
+                    <div><strong>Service:</strong> ${app.service}</div>
+                    <div><strong>Location:</strong> ${app.location}</div>
+                    <div><strong>Experience:</strong> ${app.experience}</div>
+                    <div><strong>Contact:</strong> ${app.phone || '+91 98000 00000'}</div>
+                    <div><strong>Rates:</strong> ${app.price ? `₹${Number(app.price).toLocaleString()} / ${app.unit || 'month'}` : `₹${app.dailyPrice || 800} / day`}</div>
+                  </div>
+
+                  <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; font-style:italic;">
+                    "${app.bio || 'Compassionate care companion eager to assist elderly patients.'}"
+                  </p>
+
+                  <div style="display:flex; gap:0.65rem; margin-top:auto; padding-top:0.75rem; border-top:1px solid var(--border);">
+                    <button class="btn btn-primary btn-sm w-full" type="button" onclick="approveApplicant('${app.id}')">
+                      ✓ Approve & Publish
+                    </button>
+                    <button class="btn btn-danger btn-sm" type="button" onclick="rejectApplicant('${app.id}')">
+                      ✕ Reject
+                    </button>
+                  </div>
+                </article>
+              `).join('');
+            }
+          }
+
+          // Render Live Providers Table
+          const tbody = document.getElementById('live-providers-tbody');
+          if (tbody) {
+            tbody.innerHTML = live.map((p) => `
+              <tr>
+                <td>
+                  <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <img src="${p.image}" alt="${p.name}" style="width:38px; height:38px; border-radius:50%; object-fit:cover;" />
+                    <div>
+                      <strong style="color:var(--text-main);">${p.name}</strong>
+                      <span style="display:block; font-size:0.75rem; color:var(--text-muted);">${p.rating} ★ (${p.reviewsCount || 40} reviews)</span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <strong style="color:var(--primary); font-size:0.85rem;">${p.service}</strong>
+                  <div style="font-size:0.8rem; color:var(--text-muted);">${p.location}</div>
+                </td>
+                <td>${p.experience}</td>
+                <td><strong>₹${Number(p.price).toLocaleString()}</strong> / ${p.unit}</td>
+                <td>
+                  <code style="background:var(--bg-surface-alt); padding:0.2rem 0.5rem; border-radius:var(--radius-sm); font-size:0.82rem; color:var(--accent);">
+                    ${p.username || p.id} : 1234
+                  </code>
+                </td>
+                <td>
+                  <div style="display:flex; gap:0.4rem;">
+                    <a href="provider-profile.html?id=${encodeURIComponent(p.id)}" class="btn btn-secondary btn-sm" style="padding:0.3rem 0.6rem; font-size:0.78rem;">Public Profile</a>
+                    <a href="provider-dashboard.html?id=${encodeURIComponent(p.id)}" class="btn btn-ghost btn-sm" style="padding:0.3rem 0.6rem; font-size:0.78rem;">Portal</a>
+                  </div>
+                </td>
+              </tr>
+            `).join('');
+          }
+        };
+
+        // Window actions for approve/reject
+        window.approveApplicant = (applicantId) => {
+          const pending = window.getPendingProviders ? window.getPendingProviders() : [];
+          const live = window.getCarexProviders ? window.getCarexProviders() : [];
+
+          const index = pending.findIndex((a) => a.id === applicantId);
+          if (index === -1) return;
+
+          const applicant = pending[index];
+          const cleanUsername = applicant.name.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 10) || `prov${Date.now().toString().slice(-4)}`;
+
+          const newLiveProvider = {
+            id: cleanUsername,
+            username: cleanUsername,
+            name: applicant.name,
+            password: '1234',
+            service: applicant.service || 'Elderly Care',
+            role: applicant.role || 'Care Provider',
+            location: applicant.location || 'New Delhi',
+            rating: 5.0,
+            reviewsCount: 1,
+            price: applicant.price || 18000,
+            unit: applicant.unit || 'month',
+            dailyPrice: applicant.dailyPrice || 850,
+            experience: applicant.experience || '3 years',
+            available: true,
+            phone: applicant.phone || '+91 98000 11111',
+            languages: applicant.languages || 'Hindi, English',
+            hospitals: applicant.hospitals || 'AIIMS, Safdarjung, Holy Family',
+            image: applicant.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+            copy: applicant.bio ? applicant.bio.slice(0, 80) + '...' : 'Compassionate care companion.',
+            bio: applicant.bio || 'Compassionate care provider.'
+          };
+
+          // Remove from pending
+          pending.splice(index, 1);
+          window.savePendingProviders(pending);
+
+          // Add to live
+          live.unshift(newLiveProvider);
+          window.saveCarexProviders(live);
+
+          window.showToast(`✓ ${applicant.name} Approved! Now live with username "${cleanUsername}" & password "1234"`);
+          renderAdminData();
+        };
+
+        window.rejectApplicant = (applicantId) => {
+          if (!confirm('Are you sure you want to decline this applicant?')) return;
+          const pending = window.getPendingProviders ? window.getPendingProviders() : [];
+          const updated = pending.filter((a) => a.id !== applicantId);
+          window.savePendingProviders(updated);
+          window.showToast('Application removed from review queue.');
+          renderAdminData();
+        };
+
+        renderAdminData();
+      });
+    </script>
+  </body>
+</html>

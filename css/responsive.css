@@ -366,4 +366,49 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  /* WhatsApp Chat Modal on Small Screen */
+  .whatsapp-card {
+    width: 95vw !important;
+    height: 88vh !important;
+    max-height: 600px !important;
+    border-radius: var(--radius-xl) !important;
+  }
+
+  .whatsapp-bubble {
+    max-width: 88% !important;
+    font-size: 0.88rem !important;
+  }
+
+  /* Admin & Profile Modal on Mobile */
+  .admin-table th, .admin-table td {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.82rem;
+  }
 }
+
+/* WhatsApp Mobile Optimizations (max-width: 600px) */
+@media (max-width: 600px) {
+  .whatsapp-card {
+    width: 100% !important;
+    height: 94vh !important;
+    border-radius: var(--radius-xl) !important;
+  }
+
+  .whatsapp-chips-scroll {
+    gap: 0.35rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .whatsapp-chip {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .dashboard-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+

@@ -223,14 +223,17 @@
 
           <!-- Success State -->
           <div class="success-state hidden" style="display:none; text-align:center; padding:2rem 1rem;">
-            <div style="width:56px; height:56px; border-radius:50%; background:var(--success-bg); color:var(--success); display:grid; place-items:center; margin:0 auto 1.25rem;">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <div style="width:60px; height:60px; border-radius:50%; background:var(--success-bg); color:var(--success); display:grid; place-items:center; margin:0 auto 1.25rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-            <h3 style="font-size:1.5rem; margin-bottom:0.5rem;">Your CareX Provider Profile is Ready!</h3>
-            <p style="color:var(--text-secondary); font-size:0.95rem; max-width:440px; margin:0 auto 1.75rem;">
-              Your profile has been saved to local demo storage. You can now access your provider dashboard and accept family care requests.
+            <h3 style="font-size:1.6rem; margin-bottom:0.5rem;">Application Submitted for Admin Verification!</h3>
+            <p style="color:var(--text-secondary); font-size:0.95rem; max-width:500px; margin:0 auto 1.75rem; line-height:1.6;">
+              Your profile has been forwarded to the <strong>CareX Admin Verification Queue</strong>. As soon as the administrator verifies your documents and approves your registration, your profile will go live in the marketplace, and you can log in with your name and password (<code>1234</code>).
             </p>
-            <a href="provider-dashboard.html" class="btn btn-primary btn-lg">Open Provider Dashboard</a>
+            <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+              <a href="admin.html" class="btn btn-primary btn-lg">Review in Admin Portal</a>
+              <a href="login.html" class="btn btn-secondary btn-lg">Back to Login</a>
+            </div>
           </div>
         </div>
       </div>
