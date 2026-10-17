@@ -303,35 +303,23 @@
   // --------------------------------------------------------------------------
   // 5. THEME ENGINE — DEFAULT DARK THEME WITH LIGHT FONT
   // --------------------------------------------------------------------------
+  // 5. THEME ENGINE — PERMANENT OBSIDIAN DARK THEME
+  // --------------------------------------------------------------------------
   const applyTheme = (theme) => {
-    const target = theme || 'dark';
-    // Dark is default; when dark, body has .dark and color-scheme is dark
-    document.body.classList.toggle('dark', target === 'dark');
-    document.body.classList.toggle('light', target === 'light');
-    document.documentElement.style.colorScheme = target;
-    store.set('theme', target);
+    // Permanent Dark Theme: user specified "dark light mode khtm krdo , sirf dark mode rehne do"
+    document.body.classList.add('dark');
+    document.body.classList.remove('light');
+    document.documentElement.style.colorScheme = 'dark';
+    store.set('theme', 'dark');
 
-    // Update toggle icons
-    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
-      btn.innerHTML = target === 'dark'
-        ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
-        : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+    // Hide theme toggles if any remain in DOM
+    document.querySelectorAll('[data-theme-toggle], .theme-toggle').forEach(btn => {
+      btn.style.display = 'none';
     });
   };
 
   const initTheme = () => {
-    // Default to 'dark' for professional dark healthcare tech look
-    const saved = store.get('theme', 'dark');
-    applyTheme(saved);
-
-    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const current = document.body.classList.contains('light') ? 'light' : 'dark';
-        const next = current === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-        showToast(`Switched to ${next} theme.`);
-      });
-    });
+    applyTheme('dark');
   };
 
   // --------------------------------------------------------------------------
@@ -344,13 +332,8 @@
           <div class="drawer-backdrop" data-drawer-close></div>
           <div class="drawer-panel">
             <div class="drawer-header">
-              <a href="index.html" class="brand">
-                <span class="brand-mark">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
-                  </svg>
-                </span>
-                <span class="brand-name">Care<span>X</span></span>
+              <a href="index.html" class="brand" aria-label="CareX Home">
+                <img src="assets/carex-logo-dark.png" alt="CareX" class="brand-logo-img" />
               </a>
               <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -969,26 +952,84 @@
   // --------------------------------------------------------------------------
   const initRegistrationStepper = () => {
     const formSteps = document.querySelectorAll('.form-step');
-    const stepIndicators = document.querySelectorAll('.stepper .step');
+    const stepIndicators = document.querySelectorAll('.stepper-btn, .stepper .step');
     if (!formSteps.length) return;
 
     let currentStep = 0;
 
+    const updateStep6Summary = () => {
+      const name = document.getElementById('provider-name')?.value?.trim() || 'Aisha Khan';
+      const city = document.getElementById('provider-city')?.value?.trim() || 'New Delhi';
+      const area = document.getElementById('provider-area')?.value?.trim() || 'Shaheen Bagh';
+      const experience = document.getElementById('provider-experience')?.value?.trim() || '5 years';
+      const monthlyRate = document.getElementById('provider-monthly')?.value?.trim() || '18,000';
+      const dailyRate = document.getElementById('provider-daily')?.value?.trim() || '800';
+      const days = document.getElementById('provider-days')?.value?.trim() || 'Monday – Friday';
+      const hours = document.getElementById('provider-hours')?.value?.trim() || '9:00 AM – 6:00 PM';
+      
+      const initials = name.split(/\s+/).filter(Boolean).map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'CP';
+      
+      const summaryAvatar = document.getElementById('summary-avatar');
+      const summaryName = document.getElementById('summary-name');
+      const summaryRoleArea = document.getElementById('summary-role-area');
+      const summaryDetails = document.getElementById('summary-details');
+
+      if (summaryAvatar) summaryAvatar.textContent = initials;
+      if (summaryName) summaryName.textContent = name;
+      if (summaryRoleArea) summaryRoleArea.textContent = `Care Companion · ${area}, ${city}`;
+      if (summaryDetails) {
+        summaryDetails.innerHTML = `
+          Rate: <strong>₹${monthlyRate.replace(/[^\d]/g, '') || '18,000'}/month</strong> · Hospital Companion: <strong>₹${dailyRate.replace(/[^\d]/g, '') || '800'}/day</strong><br />
+          Experience: <strong>${experience}</strong> · Schedule: <strong>${days} (${hours})</strong><br />
+          <span style="display:inline-block; margin-top:6px; color:var(--primary); font-size:0.82rem; font-weight:600;">● Ready for CareX Admin Verification</span>
+        `;
+      }
+    };
+
     const showStep = (idx) => {
+      if (idx < 0 || idx >= formSteps.length) return;
       formSteps.forEach((step, i) => {
         step.classList.toggle('active', i === idx);
         step.style.display = i === idx ? 'block' : 'none';
       });
       stepIndicators.forEach((ind, i) => {
-        ind.classList.toggle('active', i <= idx);
+        ind.classList.toggle('active', i === idx);
+        ind.classList.toggle('completed', i < idx);
       });
       currentStep = idx;
+
+      if (idx === formSteps.length - 1) {
+        updateStep6Summary();
+      }
+
       window.scrollTo({ top: 120, behavior: 'smooth' });
     };
 
+    // Direct click on stepper buttons
+    stepIndicators.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        showStep(idx);
+      });
+    });
+
+    // Next / Back buttons
     document.querySelectorAll('[data-step-next]').forEach(btn => {
       btn.addEventListener('click', () => {
         const delta = parseInt(btn.dataset.stepNext, 10);
+        if (delta > 0) {
+          // Validate required fields in the current step before advancing
+          const currentFormStep = formSteps[currentStep];
+          if (currentFormStep) {
+            const requiredFields = currentFormStep.querySelectorAll('input[required], select[required], textarea[required]');
+            for (const input of requiredFields) {
+              if (!input.value.trim()) {
+                input.focus();
+                showToast(`Please fill in required field: ${input.labels?.[0]?.textContent || input.id}`);
+                return;
+              }
+            }
+          }
+        }
         const next = currentStep + delta;
         if (next >= 0 && next < formSteps.length) {
           showStep(next);
@@ -999,17 +1040,22 @@
     document.querySelectorAll('[data-submit-demo]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const name = document.getElementById('provider-name')?.value || 'New Provider';
-        const phone = document.getElementById('provider-phone')?.value || '+91 98000 11111';
-        const city = document.getElementById('provider-city')?.value || 'New Delhi';
-        const area = document.getElementById('provider-area')?.value || 'Shaheen Bagh';
-        const experience = document.getElementById('provider-experience')?.value || '3 years';
+        const name = document.getElementById('provider-name')?.value?.trim() || 'New Provider';
+        const phone = document.getElementById('provider-phone')?.value?.trim() || '+91 98000 11111';
+        const city = document.getElementById('provider-city')?.value?.trim() || 'New Delhi';
+        const area = document.getElementById('provider-area')?.value?.trim() || 'Shaheen Bagh';
+        const experience = document.getElementById('provider-experience')?.value?.trim() || '3 years';
         const monthlyRate = parseInt(document.getElementById('provider-monthly')?.value?.replace(/[^\d]/g, '') || '18000', 10);
         const dailyRate = parseInt(document.getElementById('provider-daily')?.value?.replace(/[^\d]/g, '') || '850', 10);
-        const bio = document.getElementById('provider-bio')?.value || 'Compassionate care companion.';
+        const bio = document.getElementById('provider-bio')?.value?.trim() || 'Compassionate and certified care companion.';
+        const languages = document.getElementById('provider-languages')?.value?.trim() || 'Hindi, English';
+        
+        const username = name.toLowerCase().replace(/[^a-z0-9]/g, '') || `provider${Date.now().toString().slice(-4)}`;
 
         const applicant = {
-          id: `applicant-${Date.now()}`,
+          id: username,
+          username: username,
+          password: '1234',
           name,
           phone,
           location: `${area}, ${city}`,
@@ -1020,20 +1066,34 @@
           service: 'Elderly Care & Hospital Companion',
           role: 'Care Companion',
           appliedAt: 'Just now',
-          languages: 'Hindi, English',
+          languages,
           bio,
-          image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'
+          rating: 5.0,
+          reviewsCount: 1,
+          available: true,
+          hospitals: 'AIIMS, Safdarjung, Holy Family',
+          image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
         };
 
         const pending = getPendingProviders();
         pending.unshift(applicant);
         savePendingProviders(pending);
 
-        document.querySelector('.step-form')?.classList.add('hidden');
-        document.querySelector('.step-form')?.style.setProperty('display', 'none');
-        document.querySelector('.success-state')?.classList.remove('hidden');
-        document.querySelector('.success-state')?.style.setProperty('display', 'block');
+        const form = document.querySelector('.step-form');
+        if (form) {
+          form.classList.add('hidden');
+          form.style.display = 'none';
+        }
+        const stepperEl = document.querySelector('.stepper');
+        if (stepperEl) stepperEl.style.display = 'none';
+
+        const successState = document.querySelector('.success-state');
+        if (successState) {
+          successState.classList.remove('hidden');
+          successState.style.display = 'block';
+        }
         
+        window.scrollTo({ top: 100, behavior: 'smooth' });
         showToast('Application submitted to CareX Admin for verification!');
       });
     });
@@ -1132,7 +1192,51 @@
   };
 
   // --------------------------------------------------------------------------
-  // 14. DOM READY INITIALIZATION
+  // 14. 3D SPATIAL TILT & PARALLAX ENGINE
+  // --------------------------------------------------------------------------
+  const init3DInteraction = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const cards = document.querySelectorAll('.live-map-card-3d, .hero-image-card');
+    cards.forEach(card => {
+      const container = card.closest('.live-map-3d-scene, .hero-media-wrap') || card.parentElement;
+      if (!container) return;
+
+      let bounds;
+      let rafId = null;
+
+      const handleMouseEnter = () => {
+        bounds = container.getBoundingClientRect();
+      };
+
+      const handleMouseMove = (e) => {
+        if (!bounds) bounds = container.getBoundingClientRect();
+        const x = e.clientX - bounds.left;
+        const y = e.clientY - bounds.top;
+        const xPct = (x / bounds.width - 0.5) * 2; // -1 to 1
+        const yPct = (y / bounds.height - 0.5) * 2; // -1 to 1
+
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          const rotX = -yPct * 7.5;
+          const rotY = xPct * 9.5;
+          card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+      };
+
+      const handleMouseLeave = () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      };
+
+      container.addEventListener('mouseenter', handleMouseEnter);
+      container.addEventListener('mousemove', handleMouseMove);
+      container.addEventListener('mouseleave', handleMouseLeave);
+    });
+  };
+
+  // --------------------------------------------------------------------------
+  // 15. DOM READY INITIALIZATION
   // --------------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', () => {
     ensureModals();
@@ -1144,6 +1248,7 @@
     initScrollAnimations();
     initRegistrationStepper();
     initFindCareFilters();
+    init3DInteraction();
 
     // Modal triggers
     document.querySelectorAll('[data-modal-target]').forEach(btn => {

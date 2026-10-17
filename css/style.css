@@ -84,30 +84,9 @@
   --header-height: 74px;
 }
 
-/* Optional Light Theme Override when toggled */
-body.light {
-  --bg-body: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-alt: #f1f5f9;
-  --bg-surface-elevated: #ffffff;
-  --bg-subtle: #f8fafc;
-  --primary: #0284c7;
-  --primary-hover: #0369a1;
-  --primary-subtle: #e0f2fe;
-  --primary-border: #bae6fd;
-  --text-main: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --text-subtle: #94a3b8;
-  --text-inverse: #ffffff;
-  --border: #e2e8f0;
-  --border-light: #f1f5f9;
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 6px 16px -2px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 16px 32px -4px rgba(15, 23, 42, 0.08);
-  --shadow-xl: 0 24px 48px -8px rgba(15, 23, 42, 0.12);
-  --shadow-float: 0 20px 40px -10px rgba(15, 23, 42, 0.15), 0 0 1px 1px rgba(15, 23, 42, 0.05);
+/* Permanent Dark Theme Enforced (Light theme removed per specifications) */
+.theme-toggle {
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -322,6 +301,26 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.04em;
   color: var(--text-main);
   text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  max-width: 175px;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--transition-fast, 0.2s ease), filter var(--transition-fast, 0.2s ease);
+}
+
+.brand:hover .brand-logo-img {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.45));
+}
+
+.footer-logo-img {
+  height: 44px;
+  max-width: 190px;
+  margin-bottom: 0.65rem;
 }
 
 .brand-mark {
@@ -2349,7 +2348,256 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* --------------------------------------------------------------------------
-   23. PREFERS-REDUCED-MOTION
+   23. ABOUT PAGE: PHOTO SIZING & REDESIGNED CHALLENGE / SOLUTION CARDS
+   -------------------------------------------------------------------------- */
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.about-hero-grid .hero-image-wrapper {
+  max-height: 380px !important;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-hero-grid .hero-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  max-height: 380px !important;
+  object-fit: cover;
+}
+
+.problem-solution-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 1.25rem 0 0 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.problem-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.25rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.problem-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.problem-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.solution-ecosystem-card {
+  background: linear-gradient(135deg, var(--bg-surface), rgba(14, 165, 233, 0.08));
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius-2xl);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.08);
+}
+
+.solution-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.25rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solution-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.15);
+}
+
+.solution-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(14, 165, 233, 0.14);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   24. 3D SPATIAL RADAR & LIVE TRACKING ENGINE
+   -------------------------------------------------------------------------- */
+.live-map-3d-scene {
+  perspective: 1200px;
+  width: 100%;
+}
+
+.live-map-card-3d {
+  background: var(--bg-surface);
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  border-radius: var(--radius-2xl);
+  overflow: visible;
+  box-shadow: -20px 30px 65px rgba(0, 0, 0, 0.88), 0 0 40px rgba(14, 165, 233, 0.18);
+  position: relative;
+  transform: rotateX(15deg) rotateY(-8deg) rotateZ(1deg);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.live-map-card-3d:hover {
+  transform: rotateX(5deg) rotateY(-3deg) rotateZ(0deg) translateY(-6px);
+  box-shadow: -25px 40px 85px rgba(0, 0, 0, 0.95), 0 0 60px rgba(14, 165, 233, 0.3);
+}
+
+.map-canvas-3d {
+  position: relative;
+  height: 380px;
+  background: radial-gradient(circle at 60% 40%, #0d1e38 0%, #07101e 65%, #03070e 100%);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.map-grid-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(14, 165, 233, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 50% 50%, black 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 70%, transparent 100%);
+}
+
+/* 360-degree rotating radar scan sweep */
+.radar-sweep-beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(14, 165, 233, 0.28) 0deg, rgba(14, 165, 233, 0.08) 35deg, transparent 65deg, transparent 360deg);
+  animation: radarRotate 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes radarRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 3D Floating HUD */
+.hud-card-floating {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(11, 21, 38, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateZ(45px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 25px rgba(14, 165, 233, 0.22);
+}
+
+/* Travelling photon particle along the spline */
+.route-photon {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 16px #38bdf8, 0 0 32px #0ea5e9;
+  offset-path: path("M 60 270 Q 170 200 230 150 T 360 80");
+  offset-rotate: auto;
+  animation: movePhoton 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 15;
+}
+
+@keyframes movePhoton {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* 3D Interactive Stepper in Register */
+.stepper-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-pill, 99px);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.stepper-btn:hover {
+  color: var(--text-main);
+  background: var(--bg-surface-alt);
+}
+
+.stepper-btn.active {
+  color: #060b14 !important;
+  background: var(--primary) !important;
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.45);
+}
+
+.stepper-btn.completed {
+  color: var(--primary);
+  background: rgba(14, 165, 233, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   25. PREFERS-REDUCED-MOTION
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -2362,4 +2610,11 @@ input:focus, select:focus, textarea:focus {
     opacity: 1 !important;
     transform: none !important;
   }
+  .live-map-card-3d {
+    transform: none !important;
+  }
+  .radar-sweep-beam, .route-photon {
+    display: none !important;
+  }
 }
+

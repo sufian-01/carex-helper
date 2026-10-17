@@ -23,12 +23,7 @@
     <header class="header">
       <div class="container navbar">
         <a href="index.html" class="brand" aria-label="CareX Home">
-          <span class="brand-mark" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
-            </svg>
-          </span>
-          <span class="brand-name">Care<span>X</span></span>
+          <img src="assets/carex-logo-dark.png" alt="CareX" class="brand-logo-img" />
         </a>
 
         <!-- Desktop Navigation -->
@@ -43,11 +38,6 @@
         <div class="nav-actions">
           <button class="btn btn-primary btn-sm btn-desktop-only" type="button" data-request-care>Request Care</button>
           <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
-          <button class="theme-toggle" type="button" aria-label="Toggle dark/light theme" data-theme-toggle>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
           <button class="mobile-toggle" type="button" aria-label="Open navigation menu" data-drawer-open>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -377,55 +367,68 @@
           </div>
 
           <!-- Right Column: Interactive Map Component -->
-          <div class="live-map-card reveal reveal-delay-1">
-            <div class="map-header-bar">
-              <span class="map-demo-label">
-                <span class="status-dot pulsing" aria-hidden="true"></span>
-                Live Tracking Demo
-              </span>
-              <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">Active Dispatch · En Route</span>
-            </div>
-
-            <div class="map-canvas-area" aria-label="Interactive map simulation">
-              <!-- Route Path -->
-              <svg class="map-route-svg" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M 60 220 Q 150 180 200 140 T 330 70" fill="none" stroke="#0284c7" stroke-width="4" stroke-dasharray="6,6" opacity="0.8"></path>
-              </svg>
-
-              <!-- Companion Starting Location Pin -->
-              <div class="map-pin" style="top:55px; right:60px;">
-                <div class="map-pin-pulse"></div>
-                <span class="map-pin-tag">Destination: AIIMS</span>
+          <!-- Right Column: 3D Spatial Radar Map Component -->
+          <div class="live-map-3d-scene reveal reveal-delay-1">
+            <div class="live-map-card-3d">
+              <div class="map-header-bar">
+                <span class="map-demo-label">
+                  <span class="status-dot pulsing" aria-hidden="true"></span>
+                  3D Spatial Radar · Live Dispatch
+                </span>
+                <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">Active Telemetry · En Route</span>
               </div>
 
-              <!-- Live Position Pin -->
-              <div class="map-pin" style="bottom:70px; left:50px;">
-                <div class="map-pin-pulse" style="background:#10b981; box-shadow:0 0 0 6px rgba(16,185,129,0.35);"></div>
-                <span class="map-pin-tag" style="background:#0f172a;">Rahul Mehta (Pickup)</span>
-              </div>
+              <div class="map-canvas-3d" aria-label="3D Live Tracking Simulation">
+                <!-- 3D Background Grid Mesh -->
+                <div class="map-grid-mesh"></div>
 
-              <!-- Map Overlay Card -->
-              <div class="map-status-overlay">
-                <div class="companion-profile-snippet">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
-                    alt="Rahul Mehta portrait"
-                    loading="lazy"
-                    width="44"
-                    height="44"
-                  />
-                  <div>
-                    <strong>Rahul Mehta</strong>
-                    <span style="display:flex; align-items:center; gap:4px; margin-top:2px;">
-                      <span class="status-dot pulsing" style="background:#10b981;"></span>
-                      Care Companion · On the way
-                    </span>
-                  </div>
+                <!-- 360-degree rotating radar scan sweep -->
+                <div class="radar-sweep-beam"></div>
+
+                <!-- Spline Route Path -->
+                <svg class="map-route-svg" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; z-index:10;">
+                  <path d="M 60 270 Q 170 200 230 150 T 360 80" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-dasharray="6,6" opacity="0.85"></path>
+                </svg>
+
+                <!-- Animated Photon Travelling Along Route -->
+                <div class="route-photon"></div>
+
+                <!-- Destination Beacon: AIIMS -->
+                <div class="map-pin" style="top:55px; right:40px; z-index:12;">
+                  <div class="map-pin-pulse" style="background:#0284c7; box-shadow:0 0 0 8px rgba(2,132,199,0.35);"></div>
+                  <span class="map-pin-tag" style="background:#0b1526; border:1px solid rgba(14,165,233,0.4);">🏥 Destination: AIIMS Delhi</span>
                 </div>
 
-                <div class="trip-meta-eta">
-                  <span class="eta-pill">ETA: 18 min</span>
-                  <span class="destination-label">Destination: AIIMS</span>
+                <!-- Live Dispatch Beacon: Rahul Mehta -->
+                <div class="map-pin" style="bottom:90px; left:45px; z-index:12;">
+                  <div class="map-pin-pulse" style="background:#10b981; box-shadow:0 0 0 8px rgba(16,185,129,0.35);"></div>
+                  <span class="map-pin-tag" style="background:#0b1526; border:1px solid rgba(16,185,129,0.4);">● Rahul Mehta (On the way)</span>
+                </div>
+
+                <!-- Floating 3D HUD Telemetry Overlay -->
+                <div class="hud-card-floating">
+                  <div class="companion-profile-snippet">
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                      alt="Rahul Mehta portrait"
+                      loading="lazy"
+                      width="44"
+                      height="44"
+                      style="border-radius:50%; border:2px solid var(--primary);"
+                    />
+                    <div>
+                      <strong style="color:#ffffff; font-size:0.95rem;">Rahul Mehta</strong>
+                      <span style="display:flex; align-items:center; gap:5px; margin-top:2px; font-size:0.8rem; color:#94a3b8;">
+                        <span class="status-dot pulsing" style="background:#10b981; width:7px; height:7px;"></span>
+                        Verified Companion · 3D Tracked
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="trip-meta-eta" style="text-align:right;">
+                    <span class="eta-pill" style="background:rgba(14,165,233,0.18); color:#38bdf8; border:1px solid rgba(14,165,233,0.4); padding:4px 10px; border-radius:999px; font-weight:700; font-size:0.82rem;">ETA: 18 min</span>
+                    <span class="destination-label" style="display:block; font-size:0.75rem; color:#94a3b8; margin-top:4px;">Speed: 24 km/h · Sector AIIMS</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -647,12 +650,7 @@
         <div class="footer-top">
           <div>
             <a href="index.html" class="brand" aria-label="CareX Home">
-              <span class="brand-mark" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-                  <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
-                </svg>
-              </span>
-              <span class="brand-name">Care<span>X</span></span>
+              <img src="assets/carex-logo-dark.png" alt="CareX" class="footer-logo-img" />
             </a>
             <p class="footer-tagline">
               Care when you need it.<br />Help when it matters.

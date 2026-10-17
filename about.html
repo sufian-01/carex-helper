@@ -23,12 +23,7 @@
     <header class="header">
       <div class="container navbar">
         <a href="index.html" class="brand" aria-label="CareX Home">
-          <span class="brand-mark" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
-            </svg>
-          </span>
-          <span class="brand-name">Care<span>X</span></span>
+          <img src="assets/carex-logo-dark.png" alt="CareX - Care when you need it" class="brand-logo-img" />
         </a>
 
         <!-- Desktop Navigation -->
@@ -43,11 +38,6 @@
         <div class="nav-actions">
           <button class="btn btn-primary btn-sm btn-desktop-only" type="button" data-request-care>Request Care</button>
           <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
-          <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
           <button class="mobile-toggle" type="button" aria-label="Open menu" data-drawer-open>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -74,68 +64,119 @@
           </div>
 
           <div class="hero-visual animate-hero-image">
-            <div class="hero-image-wrapper" style="aspect-ratio: 4 / 3.2;">
+            <div class="hero-image-wrapper" style="max-height: 380px; aspect-ratio: 16 / 11; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border);">
               <img
                 src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1200&q=80"
                 alt="Caregiver tenderly holding elderly person's hand"
                 fetchpriority="high"
                 width="800"
-                height="600"
+                height="500"
+                style="width:100%; height:100%; max-height:380px; object-fit:cover;"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHY CAREX? SECTION -->
+      <!-- WHY CAREX? SECTION (THE CHALLENGE & SOLUTION) -->
       <section class="section" style="background:var(--bg-subtle);">
         <div class="container">
-          <div class="section-header reveal">
-            <span class="eyebrow">The Challenge</span>
+          <div class="section-header centered reveal">
+            <span class="eyebrow">The Challenge & The Solution</span>
             <h2 class="section-title">Why CareX?</h2>
             <p class="lead-text" style="margin-top:0.75rem;">
-              Caring for aging family members shouldn't depend on luck or informal networks.
+              Caring for aging family members shouldn't depend on luck, distance, or informal networks.
             </p>
           </div>
 
-          <div class="grid-2" style="align-items:stretch;">
-            <div class="problem-solution-card reveal reveal-delay-1">
-              <h3 style="font-size:1.35rem; margin-bottom:0.75rem; color:var(--text-main);">The Problem</h3>
-              <p style="color:var(--text-secondary); margin-bottom:1rem;">
-                Modern families face difficult logistical realities when balancing careers and senior health:
+          <div class="grid-2" style="align-items:stretch; margin-top:1.5rem;">
+            <!-- The Problem Card -->
+            <div class="problem-solution-card reveal reveal-delay-1" style="border-color:rgba(239, 68, 68, 0.25);">
+              <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem;">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#ef4444;"></span>
+                <h3 style="font-size:1.35rem; color:var(--text-main); margin:0;">The Problem</h3>
+              </div>
+              <p style="color:var(--text-secondary); margin-bottom:1.25rem; font-size:0.95rem;">
+                Modern urban families face difficult logistical realities when balancing careers and senior health:
               </p>
-              <ul class="problem-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                  <span><strong>Distance:</strong> Children frequently live far away in different cities or busy work districts.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                  <span><strong>Hospital Navigation:</strong> Elderly parents often struggle to reach diagnostic appointments and hospital check-ins alone.</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                  <span><strong>Reliability:</strong> Finding trustworthy, background-checked local assistance on short notice is notoriously difficult.</span>
-                </li>
-              </ul>
+
+              <div class="problem-list">
+                <div class="problem-item">
+                  <div class="problem-icon-wrap" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--text-main); font-size:1rem; display:block; margin-bottom:2px;">Geographic Distance</strong>
+                    <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.5; margin:0;">
+                      Children frequently live and work far away in distant metros, unable to reach parents immediately during daytime appointments.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="problem-icon-wrap" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="9" x2="12" y2="15"></line><line x1="9" y1="12" x2="15" y2="12"></line></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--text-main); font-size:1rem; display:block; margin-bottom:2px;">Hospital Navigation Stress</strong>
+                    <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.5; margin:0;">
+                      Elderly parents struggle alone through crowded OPD queues, diagnostic test labs, and confusing billing counters at major hospitals like AIIMS.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="problem-icon-wrap" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--text-main); font-size:1rem; display:block; margin-bottom:2px;">Lack of Vetted Reliability</strong>
+                    <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.5; margin:0;">
+                      Finding background-checked, polite, and trustworthy assistance on flexible hourly or daily terms has traditionally been difficult.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="problem-solution-card reveal reveal-delay-2" style="background:linear-gradient(135deg, var(--bg-surface), var(--primary-subtle)); border-color:var(--primary-border);">
-              <h3 style="font-size:1.35rem; margin-bottom:0.75rem; color:var(--primary);">The CareX Solution</h3>
-              <p style="color:var(--text-secondary); margin-bottom:1.25rem;">
-                CareX brings the two sides together through one dignified, transparent digital marketplace:
-              </p>
-              
-              <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.25rem; margin-bottom:1rem; box-shadow:var(--shadow-xs);">
-                <strong style="display:block; font-size:1.05rem; color:var(--text-main); margin-bottom:0.25rem;">People Who Need Help</strong>
-                <p style="color:var(--text-muted); font-size:0.88rem;">Seniors and their family organizers seeking dignified, dependable companions.</p>
+            <!-- The CareX Solution Card -->
+            <div class="solution-ecosystem-card reveal reveal-delay-2">
+              <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem;">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--primary); box-shadow:0 0 10px var(--primary);"></span>
+                <h3 style="font-size:1.35rem; color:var(--primary); margin:0;">The CareX Solution</h3>
               </div>
+              <p style="color:var(--text-secondary); margin-bottom:1.25rem; font-size:0.95rem;">
+                CareX brings both sides together through one dignified, transparent digital marketplace:
+              </p>
 
-              <div style="text-align:center; font-weight:800; color:var(--primary); font-size:1.25rem; margin:-4px 0 6px;">+</div>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div class="solution-item">
+                  <div class="solution-icon-wrap" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--text-main); font-size:1rem; display:block; margin-bottom:2px;">For Families Seeking Care</strong>
+                    <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.5; margin:0;">
+                      Seniors and their family organizers find vetted, respectful neighborhood companions with transparent rates, real-time ETA, and doctor notes.
+                    </p>
+                  </div>
+                </div>
 
-              <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.25rem; box-shadow:var(--shadow-xs);">
-                <strong style="display:block; font-size:1.05rem; color:var(--text-main); margin-bottom:0.25rem;">People Willing to Provide Help</strong>
-                <p style="color:var(--text-muted); font-size:0.88rem;">Experienced local companions and caregivers ready to offer heartfelt neighborhood support.</p>
+                <div style="text-align:center; color:var(--primary); font-size:1.1rem; font-weight:800; line-height:1;">
+                  <span style="background:var(--bg-surface-alt); padding:0.25rem 0.85rem; border-radius:var(--radius-pill); border:1px solid var(--primary-border); font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase;">Connected Neighborhood Community</span>
+                </div>
+
+                <div class="solution-item">
+                  <div class="solution-icon-wrap" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  </div>
+                  <div>
+                    <strong style="color:var(--text-main); font-size:1rem; display:block; margin-bottom:2px;">For Verified Local Companions</strong>
+                    <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.5; margin:0;">
+                      Educated youth, nursing graduates, and compassionate residents turn spare hours into dignified micro-employment with 100% direct payouts.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -320,12 +361,7 @@
         <div class="footer-top">
           <div>
             <a href="index.html" class="brand" aria-label="CareX Home">
-              <span class="brand-mark" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-                  <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
-                </svg>
-              </span>
-              <span class="brand-name">Care<span>X</span></span>
+              <img src="assets/carex-logo-dark.png" alt="CareX Logo" class="brand-logo-img footer-logo-img" />
             </a>
             <p class="footer-tagline">
               Care when you need it.<br />Help when it matters.
