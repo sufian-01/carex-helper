@@ -2223,111 +2223,225 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* --------------------------------------------------------------------------
-   21. TEAM MEMBERS GRID (ABOUT PAGE)
+   21. TEAM MEMBERS 3D FLIP CARDS (ABOUT PAGE)
    -------------------------------------------------------------------------- */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 1.5rem;
-  margin-top: 2.75rem;
-  align-items: stretch;
+.team-flip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+  margin-top: 3rem;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.team-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
+/* Perfect Square 3D Card Container */
+.team-flip-card {
+  width: 320px;
+  height: 320px;
+  aspect-ratio: 1 / 1;
+  perspective: 1200px;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  user-select: none;
   border-radius: var(--radius-2xl);
-  padding: 2.25rem 1.65rem;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: var(--radius-2xl);
+}
+
+/* Flipped state (reversed page effect) */
+.team-flip-card.flipped .flip-card-inner,
+.team-flip-card:focus-visible .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Shared Face Styling */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-2xl);
+  padding: 1.65rem 1.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(14, 165, 233, 0.08);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
-.team-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
-  opacity: 0;
-  transition: opacity 0.25s ease;
+/* Front Face (Square Presentation) */
+.flip-card-front {
+  background: radial-gradient(circle at 50% 25%, rgba(14, 165, 233, 0.12) 0%, #0a1322 70%, #060b14 100%);
+  justify-content: center;
 }
 
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(14, 165, 233, 0.2);
-  border-color: rgba(14, 165, 233, 0.45);
+.team-flip-card:hover .flip-card-front {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.88), 0 0 32px rgba(14, 165, 233, 0.25);
 }
 
-.team-card:hover::before {
-  opacity: 1;
-}
-
-/* Card track spans on desktop: Row 1 = 3 cards, Row 2 = 2 centered cards */
-.team-card:nth-child(1) { grid-column: 1 / span 2; }
-.team-card:nth-child(2) { grid-column: 3 / span 2; }
-.team-card:nth-child(3) { grid-column: 5 / span 2; }
-.team-card:nth-child(4) { grid-column: 2 / span 2; }
-.team-card:nth-child(5) { grid-column: 4 / span 2; }
-
-.team-avatar-wrap {
+.team-flip-card .team-avatar-wrap {
   width: 74px;
   height: 74px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(56, 189, 248, 0.05));
-  border: 2px solid rgba(14, 165, 233, 0.4);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), rgba(56, 189, 248, 0.06));
+  border: 2px solid rgba(14, 165, 233, 0.45);
   display: grid;
   place-items: center;
-  margin-bottom: 1.15rem;
   color: #38bdf8;
   font-weight: 800;
   font-size: 1.35rem;
-  box-shadow: 0 0 20px rgba(14, 165, 233, 0.18);
+  box-shadow: 0 0 22px rgba(14, 165, 233, 0.25);
+  margin-bottom: 0.9rem;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
 }
 
-.team-name {
+.team-flip-card:hover .team-avatar-wrap {
+  transform: scale(1.08);
+}
+
+.team-flip-card .team-name {
   font-family: var(--font-display);
   font-size: 1.18rem;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: var(--text-main);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
-.team-role-badge {
+.team-flip-card .team-role-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.32rem 0.9rem;
+  padding: 0.28rem 0.85rem;
   background: rgba(14, 165, 233, 0.12);
   border: 1px solid rgba(14, 165, 233, 0.3);
   border-radius: 999px;
   color: #38bdf8;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
-.team-bio {
-  font-size: 0.88rem;
-  line-height: 1.68;
-  color: var(--text-secondary);
+.flip-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+  margin-top: 0.25rem;
+}
+
+.team-flip-card:hover .flip-prompt {
+  color: #38bdf8;
+  border-color: rgba(14, 165, 233, 0.4);
+  background: rgba(14, 165, 233, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Back Face (Reversed Page with Biography) */
+.flip-card-back {
+  background: radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.14) 0%, #0a1322 75%, #060b14 100%);
+  transform: rotateY(180deg);
+  border-color: rgba(14, 165, 233, 0.4);
+  justify-content: space-between;
+  padding: 1.4rem 1.25rem;
+}
+
+.team-flip-card.flipped .flip-card-back {
+  border-color: rgba(14, 165, 233, 0.6);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9), 0 0 35px rgba(14, 165, 233, 0.3);
+}
+
+.back-header {
+  margin-bottom: 0.4rem;
+  flex-shrink: 0;
+}
+
+.back-role {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.back-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
   margin: 0;
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
+}
+
+.flip-card-back .team-bio {
+  font-size: 0.81rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 155px;
+  padding: 0 4px;
   text-align: center;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(14, 165, 233, 0.4) transparent;
+}
+
+.flip-card-back .team-bio::-webkit-scrollbar {
+  width: 4px;
+}
+.flip-card-back .team-bio::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.4);
+  border-radius: 4px;
+}
+
+.flip-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.flip-back-btn:hover {
+  color: #38bdf8;
+  border-color: rgba(14, 165, 233, 0.4);
+  background: rgba(14, 165, 233, 0.15);
 }
 
 /* --------------------------------------------------------------------------

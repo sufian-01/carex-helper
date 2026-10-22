@@ -1236,7 +1236,24 @@
   };
 
   // --------------------------------------------------------------------------
-  // 15. DOM READY INITIALIZATION
+  // 15. TEAM 3D FLIP CARDS INTERACTION
+  // --------------------------------------------------------------------------
+  const initTeamFlipCards = () => {
+    document.querySelectorAll('.team-flip-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('flipped');
+        }
+      });
+    });
+  };
+
+  // --------------------------------------------------------------------------
+  // 16. DOM READY INITIALIZATION
   // --------------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', () => {
     ensureModals();
@@ -1249,6 +1266,7 @@
     initRegistrationStepper();
     initFindCareFilters();
     init3DInteraction();
+    initTeamFlipCards();
 
     // Modal triggers
     document.querySelectorAll('[data-modal-target]').forEach(btn => {
