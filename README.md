@@ -77,13 +77,13 @@ Your application will be live on `https://<your-project>.vercel.app` with clean 
 - **Post Custom Care Request**: Families can post custom requirements (hospital visit date, budget, wheelchair aid) and track companion matching.
 - **Secure Payment Simulation**: Instant confirmation and status updates.
 
-### 7. Project Team
-Built by our dedicated team with empathy and modern design:
-- **SAMIA NAAZ** — Project Member
-- **SHAULAT JAHAN** — Project Member
-- **RIVA NAAZ** — Project Member
-- **SANA** — Project Member
-- **HEENA PARVEEN** — Project Member
+### 7. Executive Leadership & Team
+Built by our dedicated team with empathy, deep vision, and modern design:
+- **SAMIA NAAZ** — Chief Executive Officer (CEO)
+- **RIVA NAAZ** — Chief Technology Officer (CTO)
+- **SHAULAT JAHAN** — Chief Operating Officer (COO)
+- **SANA** — Chief Marketing Officer (CMO)
+- **HEENA PARVEEN** — HR Manager (HR)
 
 ---
 
